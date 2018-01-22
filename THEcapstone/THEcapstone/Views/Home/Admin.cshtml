@@ -1,5 +1,32 @@
-﻿@model IEnumerable <THEcapstone.Models.ApplicationUser>
+﻿@model List <THEcapstone.Models.ApplicationUser>
 
 
 <h2>Admin</h2>
-
+<hr />
+<table class="table table-inverse">
+   <tr>
+       <th>
+           Username
+       </th>
+       <th>
+           Desired Role
+       </th>
+       <th>
+           Approve Role
+       </th>
+   </tr>
+    @foreach (var user in Model)
+    {
+        <tr>
+            <td>
+                @user.UserName
+            </td>
+            <td>
+                @user.RoleToAdd
+            </td>
+            <td>
+                @Html.ActionLink("Approve", "Home", "Index", new { id = user.Id } , new {@class = "btn btn-success"})
+            </td>
+        </tr>
+    }
+</table>

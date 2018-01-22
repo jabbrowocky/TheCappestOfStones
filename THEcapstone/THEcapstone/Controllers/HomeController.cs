@@ -22,12 +22,12 @@ namespace THEcapstone.Controllers
         }
         public ActionResult Admin()
         {
-            
 
+            
             if (User.IsInRole("Admin"))
             {
-                var unassignedUsers = (from u in db.Users where u.RoleToAdd != "Customer" select u);
-                return View(unassignedUsers.ToList());
+                var unassignedUsers = (from u in db.Users where u.RoleToAdd != "Customer" && u.RoleToAdd != null select u).ToList();
+                return View(unassignedUsers);
             }
             else
             {
