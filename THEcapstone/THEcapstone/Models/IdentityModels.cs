@@ -16,6 +16,7 @@ namespace THEcapstone.Models
             // Add custom user claims here
             return userIdentity;
         }
+        public string RoleToAdd {get;set;}
     }
 
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>

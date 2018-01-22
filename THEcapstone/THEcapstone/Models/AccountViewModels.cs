@@ -83,6 +83,10 @@ namespace THEcapstone.Models
         [Display(Name = "Confirm password")]
         [Compare("Password", ErrorMessage = "The password and confirmation password do not match.")]
         public string ConfirmPassword { get; set; }
+
+        [Required]
+        [Display(Name = "What type of user are you?")]
+        public string RoleIdentifier { get; set; }
     }
 
     public class ResetPasswordViewModel
