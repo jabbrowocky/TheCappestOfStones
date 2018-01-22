@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.Mvc;
 using THEcapstone.Models;
 using Microsoft.AspNet.Identity;
+using Microsoft.AspNet.Identity.EntityFramework;
 
 namespace THEcapstone.Controllers
 {
@@ -33,6 +34,17 @@ namespace THEcapstone.Controllers
             {
                 return RedirectToAction("Index");
             }
+        }
+        public ActionResult ApproveRole(string id)
+        {
+            var user = (from data in db.Users where data.Id == id select data).First();
+            var role = (from data in db.Users where data.Id == id select data.RoleToAdd).FirstOrDefault().ToString();
+            var userManager = new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(db));
+            userManager.AddToRole(user.Id, role);            
+            db.SaveChanges();
+            user.RoleToAdd = null;
+            db.SaveChanges();
+            return RedirectToAction("Admin","Home");
         }
         public ActionResult About()
         {
