@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using THEcapstone.Models;
+using Microsoft.AspNet.Identity;
 
 namespace THEcapstone.Controllers
 {
@@ -16,10 +17,23 @@ namespace THEcapstone.Controllers
         }
         public ActionResult Index()
         {
-            var test = (from x in db.Users where x.Id == " " select x);
+            //var test = (from x in db.Users where x.Id == " " select x);
             return View();
         }
+        public ActionResult Admin()
+        {
+            
 
+            if (User.IsInRole("Admin"))
+            {
+                var unassignedUsers = (from u in db.Users where u.RoleToAdd != "Customer" select u);
+                return View(unassignedUsers.ToList());
+            }
+            else
+            {
+                return RedirectToAction("Index");
+            }
+        }
         public ActionResult About()
         {
             ViewBag.Message = "Your application description page.";
