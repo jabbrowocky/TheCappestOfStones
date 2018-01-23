@@ -9,5 +9,7 @@ namespace THEcapstone.Models
     {
         public Customer Cust { get; set; }
         public Addresses Address { get; set; }
+        public States State { get; set; }
+        public List<States> StateList {get;set;}
     }
 }

@@ -1,0 +1,47 @@
+﻿@model THEcapstone.Models.CustomerCreateModel
+
+
+<h4>Customer Information</h4>
+<hr />
+<div class="row">
+    
+       @using (Html.BeginForm())
+       {
+        <div class="form-group">
+            @Html.LabelFor(m => m.Cust.CustFirstName, new { @class = "col-md-2 control-label" })
+            <div class="col-md-10">
+                @Html.TextBoxFor(m => m.Cust.CustFirstName, new { @class = "form-control" })
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(m => m.Cust.CustLastName, new { @class = "col-md-2 control-label" })
+            <div class="col-md-10">
+                @Html.TextBoxFor(m => m.Cust.CustLastName, new { @class = "form-control" })
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(m => m.Address.Street, new { @class = "col-md-2 control-label" })
+            <div class="col-md-10">
+                @Html.TextBoxFor(m => m.Address.Street, new { @class = "form-control" })
+
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(m => m.Address.City, new { @class = "col-md-2 control-label" })
+            <div class="col-md-10">
+                @Html.TextBoxFor(m => m.Address.City, new { @class = "form-control" })
+            </div>
+        </div> 
+        <div class="form-group">
+            @Html.LabelFor(m => m.State.StateName, new { @class = "col-md-2 control-label" })
+            <div class="col-md-10">
+                @Html.DropDownListFor(m => m.State.Id, new SelectList(Model.StateList, "Id", "StateName", null), new { @class = "form-control" })
+            </div>
+        </div>               
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Create" class="btn btn-success btn-lg" />
+            </div>
+        </div>
+       }
+</div>

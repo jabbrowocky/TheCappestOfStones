@@ -18,7 +18,12 @@ namespace THEcapstone.Controllers
         }
         public ActionResult Index()
         {
-            //var test = (from x in db.Users where x.Id == " " select x);
+            var userId = User.Identity.GetUserId();
+            
+            if (User.IsInRole("Customer"))
+            {                
+                return RedirectToAction("Index", "Customer");
+            }
             return View();
         }
         public ActionResult Admin()

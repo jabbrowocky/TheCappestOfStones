@@ -168,6 +168,7 @@ namespace THEcapstone.Controllers
                     if (model.RoleIdentifier == "Customer")
                     {
                         await this.UserManager.AddToRolesAsync(user.Id, model.RoleIdentifier);
+                        return RedirectToAction("Index", "Customer");
                     }
                     return RedirectToAction("Index", "Home");
                 }
