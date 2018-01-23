@@ -30,5 +30,8 @@ namespace THEcapstone.Models
         {
             return new ApplicationDbContext();
         }
+        public DbSet<Addresses> Addresses { get; set; }
+        public DbSet<States> States { get; set; }
+        public DbSet<Customer> Customers { get; set; }
     }
 }
