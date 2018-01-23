@@ -202,21 +202,13 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201801221605081_init.cs" />
-    <Compile Include="Migrations\201801221605081_init.Designer.cs">
-      <DependentUpon>201801221605081_init.cs</DependentUpon>
+    <Compile Include="Migrations\201801232036543_init.cs" />
+    <Compile Include="Migrations\201801232036543_init.Designer.cs">
+      <DependentUpon>201801232036543_init.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201801221718218_test.cs" />
-    <Compile Include="Migrations\201801221718218_test.Designer.cs">
-      <DependentUpon>201801221718218_test.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201801231506253_pls work this taim kthxdai.cs" />
-    <Compile Include="Migrations\201801231506253_pls work this taim kthxdai.Designer.cs">
-      <DependentUpon>201801231506253_pls work this taim kthxdai.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201801231508083_gotem.cs" />
-    <Compile Include="Migrations\201801231508083_gotem.Designer.cs">
-      <DependentUpon>201801231508083_gotem.cs</DependentUpon>
+    <Compile Include="Migrations\201801232041210_lolwut.cs" />
+    <Compile Include="Migrations\201801232041210_lolwut.Designer.cs">
+      <DependentUpon>201801232041210_lolwut.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -306,17 +298,11 @@
     <Content Include="Scripts\jquery-1.10.2.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201801221605081_init.resx">
-      <DependentUpon>201801221605081_init.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201801232036543_init.resx">
+      <DependentUpon>201801232036543_init.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201801221718218_test.resx">
-      <DependentUpon>201801221718218_test.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201801231506253_pls work this taim kthxdai.resx">
-      <DependentUpon>201801231506253_pls work this taim kthxdai.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201801231508083_gotem.resx">
-      <DependentUpon>201801231508083_gotem.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201801232041210_lolwut.resx">
+      <DependentUpon>201801232041210_lolwut.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

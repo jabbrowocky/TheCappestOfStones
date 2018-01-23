@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Web;
 
@@ -14,7 +15,8 @@ namespace THEcapstone.Models
         public string CustLastName { get; set; }
         public int AddressId { get; set; }
         public Addresses AddId { get; set; }
-        public string UserId {get;set;}
-        public virtual ApplicationUser Id { get; set; }
+        public string UserId { get; set; }
+        [ForeignKey("UserId")]
+        public virtual ApplicationUser ApplicationUser { get; set; }
     }
 }

@@ -47,21 +47,27 @@ namespace THEcapstone.Controllers
             var userId = User.Identity.GetUserId();
             if (ModelState.IsValid)
             {
-                customer.Cust.UserId = userId;
-                customer.State.Id = customer.Address.StateId;
-                var address = CreateAddress(customer.Address);                
-                address.AddressId = customer.Cust.AddressId;
-                db.Customers.Add(customer.Cust);
+                Customer toAdd = new Customer();
+                toAdd.UserId = userId;
+                toAdd.CustFirstName = customer.Cust.CustFirstName;
+                toAdd.CustLastName = customer.Cust.CustLastName;                
+                var address = CreateAddress(customer.Address);
+                toAdd.AddressId = address.AddressId;
+                db.Customers.Add(toAdd);
                 db.SaveChanges();
             }
             return View();
         }
         private Addresses CreateAddress (Addresses address)
         {
-            
-            db.Addresses.Add(address);
+            Addresses Address = new Addresses();
+            Address.StateId = address.StateId;
+            Address.Street = address.Street;
+            Address.City = address.City;
+            Address.ZipCode = address.ZipCode;
+            db.Addresses.Add(Address);
             db.SaveChanges();
-            return address;
+            return Address;
         }
        
     }

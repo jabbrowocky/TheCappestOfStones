@@ -13,7 +13,7 @@ namespace THEcapstone.Models
         public string Street { get; set; }
         public string City { get; set; }
         public int StateId { get; set; }
-        public States Id { get; set; }
+        public States state { get; set; }
         public int ZipCode { get; set; }
     }
 }
