@@ -33,5 +33,7 @@ namespace THEcapstone.Models
         public DbSet<Addresses> Addresses { get; set; }
         public DbSet<States> States { get; set; }
         public DbSet<Customer> Customers { get; set; }
+        public DbSet<Veterinarian> Veterinarians { get; set; }
+        public DbSet<Profile> Profiles { get; set; }
     }
 }

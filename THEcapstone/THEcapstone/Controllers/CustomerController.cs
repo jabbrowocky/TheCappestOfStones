@@ -21,7 +21,7 @@ namespace THEcapstone.Controllers
                 if (cust.UserId == userId)
                 {
                     custy = cust;
-                    return View();
+                    return View(custy);
                 }
             }
             
@@ -29,9 +29,8 @@ namespace THEcapstone.Controllers
         }
 
         public ActionResult Create()
-        {
-                     
-                
+        {                    
+               
             if (User.Identity.IsAuthenticated)
             {
                 CustomerCreateModel model = new CustomerCreateModel();
