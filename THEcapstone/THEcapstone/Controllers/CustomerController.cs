@@ -30,8 +30,7 @@ namespace THEcapstone.Controllers
 
         public ActionResult Create()
         {
-
-            
+                     
                 
             if (User.Identity.IsAuthenticated)
             {
@@ -50,13 +49,14 @@ namespace THEcapstone.Controllers
                 Customer toAdd = new Customer();
                 toAdd.UserId = userId;
                 toAdd.CustFirstName = customer.Cust.CustFirstName;
-                toAdd.CustLastName = customer.Cust.CustLastName;                
+                toAdd.CustLastName = customer.Cust.CustLastName;
+                customer.Address.StateId = customer.State.Id;                
                 var address = CreateAddress(customer.Address);
                 toAdd.AddressId = address.AddressId;
                 db.Customers.Add(toAdd);
                 db.SaveChanges();
             }
-            return View();
+            return RedirectToAction("Index","Customer");
         }
         private Addresses CreateAddress (Addresses address)
         {

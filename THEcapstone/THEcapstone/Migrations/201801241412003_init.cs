@@ -16,11 +16,10 @@ namespace THEcapstone.Migrations
                         City = c.String(),
                         StateId = c.Int(nullable: false),
                         ZipCode = c.Int(nullable: false),
-                        Id_Id = c.Int(),
                     })
                 .PrimaryKey(t => t.AddressId)
-                .ForeignKey("dbo.States", t => t.Id_Id)
-                .Index(t => t.Id_Id);
+                .ForeignKey("dbo.States", t => t.StateId, cascadeDelete: true)
+                .Index(t => t.StateId);
             
             CreateTable(
                 "dbo.States",
@@ -126,7 +125,7 @@ namespace THEcapstone.Migrations
             DropForeignKey("dbo.AspNetUserLogins", "UserId", "dbo.AspNetUsers");
             DropForeignKey("dbo.AspNetUserClaims", "UserId", "dbo.AspNetUsers");
             DropForeignKey("dbo.Customers", "AddressId", "dbo.Addresses");
-            DropForeignKey("dbo.Addresses", "Id_Id", "dbo.States");
+            DropForeignKey("dbo.Addresses", "StateId", "dbo.States");
             DropIndex("dbo.AspNetRoles", "RoleNameIndex");
             DropIndex("dbo.AspNetUserRoles", new[] { "RoleId" });
             DropIndex("dbo.AspNetUserRoles", new[] { "UserId" });
@@ -135,7 +134,7 @@ namespace THEcapstone.Migrations
             DropIndex("dbo.AspNetUsers", "UserNameIndex");
             DropIndex("dbo.Customers", new[] { "UserId" });
             DropIndex("dbo.Customers", new[] { "AddressId" });
-            DropIndex("dbo.Addresses", new[] { "Id_Id" });
+            DropIndex("dbo.Addresses", new[] { "StateId" });
             DropTable("dbo.AspNetRoles");
             DropTable("dbo.AspNetUserRoles");
             DropTable("dbo.AspNetUserLogins");

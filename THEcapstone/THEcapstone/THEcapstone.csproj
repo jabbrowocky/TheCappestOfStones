@@ -202,13 +202,9 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201801232036543_init.cs" />
-    <Compile Include="Migrations\201801232036543_init.Designer.cs">
-      <DependentUpon>201801232036543_init.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201801232041210_lolwut.cs" />
-    <Compile Include="Migrations\201801232041210_lolwut.Designer.cs">
-      <DependentUpon>201801232041210_lolwut.cs</DependentUpon>
+    <Compile Include="Migrations\201801241412003_init.cs" />
+    <Compile Include="Migrations\201801241412003_init.Designer.cs">
+      <DependentUpon>201801241412003_init.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -217,7 +213,9 @@
     <Compile Include="Models\CustomerCreateModel.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
+    <Compile Include="Models\Profile.cs" />
     <Compile Include="Models\States.cs" />
+    <Compile Include="Models\Veterinarian.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
@@ -298,11 +296,8 @@
     <Content Include="Scripts\jquery-1.10.2.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201801232036543_init.resx">
-      <DependentUpon>201801232036543_init.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201801232041210_lolwut.resx">
-      <DependentUpon>201801232041210_lolwut.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201801241412003_init.resx">
+      <DependentUpon>201801241412003_init.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

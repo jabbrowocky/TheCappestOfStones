@@ -13,7 +13,7 @@ namespace THEcapstone.Migrations
         
         string IMigrationMetadata.Id
         {
-            get { return "201801232036543_init"; }
+            get { return "201801241412003_init"; }
         }
         
         string IMigrationMetadata.Source
