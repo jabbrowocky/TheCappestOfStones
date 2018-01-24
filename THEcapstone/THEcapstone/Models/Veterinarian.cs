@@ -14,7 +14,7 @@ namespace THEcapstone.Models
         public string VetName { get; set; }
         public int AddressId { get; set; }
         public Addresses Address { get; set; }
-        public int ProfileId { get; set; }
+        public int? ProfileId { get; set; } = null;
         public Profile Profile { get; set; }
         public string UserId { get; set; }
         public virtual ApplicationUser User { get; set; }

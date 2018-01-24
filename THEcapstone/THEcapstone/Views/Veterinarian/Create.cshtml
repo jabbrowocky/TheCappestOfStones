@@ -1,27 +1,17 @@
-﻿@model THEcapstone.Models.CustomerCreateModel
+﻿@model THEcapstone.Models.VeterinarianCreate
 
 
-<br />
-<h4>Customer Information</h4>
+<h2>Authorized Veterinarian Information</h2>
 <hr />
-        
+
 
     @using (Html.BeginForm())
     {
         <div class="row">
             <div class="form-group">
-                @Html.LabelFor(m => m.Cust.CustFirstName, new { @class = "col-md-2 control-label" })
+                @Html.LabelFor(m => m.Vet.VetName, new { @class = "col-md-2 control-label" })
                 <div class="col-md-10">
-                    @Html.TextBoxFor(m => m.Cust.CustFirstName, new { @class = "form-control" })
-                </div>
-            </div>
-        </div>
-        <br />
-        <div class="row">
-            <div class="form-group">
-                @Html.LabelFor(m => m.Cust.CustLastName, new { @class = "col-md-2 control-label" })
-                <div class="col-md-10">
-                    @Html.TextBoxFor(m => m.Cust.CustLastName, new { @class = "form-control" })
+                    @Html.TextBoxFor(m => m.Vet.VetName, new { @class = "form-control" })
                 </div>
             </div>
         </div>
@@ -31,6 +21,7 @@
                 @Html.LabelFor(m => m.Address.Street, new { @class = "col-md-2 control-label" })
                 <div class="col-md-10">
                     @Html.TextBoxFor(m => m.Address.Street, new { @class = "form-control" })
+
                 </div>
             </div>
         </div>
@@ -44,19 +35,20 @@
             </div>
         </div>
         <br />
-        <div class="row">  
+        <div class="row">
             <div class="form-group">
                 @Html.LabelFor(m => m.State.StateName, new { @class = "col-md-2 control-label" })
                 <div class="col-md-10">
-                    @Html.DropDownListFor(m => m.State.Id, new SelectList(Model.StateList, "Id", "StateName"), new { @class = "form-control" })
+                    @Html.DropDownListFor(m => m.State.Id, new SelectList(Model.States, "Id", "StateName"), new { @class = "form-control" })
                 </div>
             </div>
         </div>
+        <br />
         <div class="row">
             <div class="form-group">
-                @Html.LabelFor(m => m.Address.ZipCode, new { @class = "col-md-2 control-label" })
+                @Html.LabelFor(m => m.Address.Street, new { @class = "col-md-2 control-label" })
                 <div class="col-md-10">
-                    @Html.TextBoxFor(m => m.Address.ZipCode,  new { @class = "form-control" })
+                    @Html.TextBoxFor(m => m.Address.Street, new { @class = "form-control" })
                 </div>
             </div>
         </div>
@@ -67,4 +59,6 @@
                 </div>
             </div>
         </div>
-       }
+    }
+
+

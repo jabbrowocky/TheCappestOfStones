@@ -24,6 +24,11 @@ namespace THEcapstone.Controllers
             {                
                 return RedirectToAction("Index", "Customer");
             }
+            if (User.IsInRole("Veterinarian"))
+            {
+                return RedirectToAction("Index", "Veterinarian");
+            }
+          
             return View();
         }
         public ActionResult Admin()
