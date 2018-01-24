@@ -20,7 +20,7 @@ namespace THEcapstone.Controllers
             {
                 if (vet.UserId == userId)
                 {
-                    return View();
+                    return View(vet);
                 }
                 
             }
