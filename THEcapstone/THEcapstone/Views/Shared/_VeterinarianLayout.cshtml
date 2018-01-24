@@ -1,0 +1,38 @@
+﻿@model THEcapstone.Models.VetProfileViewModel
+@{
+    
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Veterinarian Home</h2>
+
+<hr />
+<div class="row">
+    <div class="col-md-2">
+        <ul class="list-group">
+
+            @if (Model.Vet.ProfileId == null)
+            {
+
+                @Html.ActionLink("Create Profile", "CreateProfile", "Veterinarian", new { id = Model.Vet.VetId }, new { @class = "list-group-item" })
+            }
+            else
+            {
+                @Html.ActionLink("View Profile", "", "", new { }, new { @class = "list-group-item" })
+                @Html.ActionLink("Edit Profile", "", "", new { }, new { @class = "list-group-item" })
+            }
+
+        </ul>
+    </div>
+    <div class="col-md-10">
+        <div class="panel panel-default">
+
+            <div class="panel-body">
+
+                @RenderBody()
+
+            </div>
+
+        </div>
+    </div>
+</div>

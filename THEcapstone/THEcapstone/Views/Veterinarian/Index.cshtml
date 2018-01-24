@@ -1,40 +1,12 @@
-﻿@model THEcapstone.Models.Veterinarian
-@{
-    ViewBag.Title = "Index";
+﻿@model THEcapstone.Models.VetProfileViewModel
+@{ 
+    Layout = "~/Views/Shared/_VeterinarianLayout.cshtml";
 }
 
-<h2>Veterinarian Home</h2>
 
-<hr />
-<div class="row">
-    <div class="col-md-2">
-        <div class="list-group">
-            
-                @if (Model.ProfileId == null)
-                {
-                    <button type="button" class="list-group-item">Create Profile</button>
-                }
-                else
-                {
-                    <button type="button" class="list-group-item">Edit Profile</button>
-                    <button type="button" class="list-group-item">View Profile</button>
-                }
-         
-        </div>
-    </div>
-    <div class="col-md-10">
-        <div class="panel panel-default">
-            
-            <div class="panel-body">
-               
-                    @{ var name = Model.VetName; }
-                    @if(Model.ProfileId == null)
-                    {
-                        <h4 class="text-center">Welcome, @name. It appears you haven't set up your profile yet. Please do so now.</h4>
-                    }
-               
-            </div>
-            
-        </div>
-    </div>
-</div>
+@{ var name = Model.Vet.VetName; }
+@if (Model.Vet.ProfileId == null)
+{
+    <h4 class="text-center">Welcome, @name. It appears you haven't set up your profile yet. Please do so now so users can get in touch with you!</h4>
+   
+}

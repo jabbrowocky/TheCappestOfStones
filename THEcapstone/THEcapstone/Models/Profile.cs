@@ -11,6 +11,7 @@ namespace THEcapstone.Models
         [Key]
         public int ProfileId { get; set; }
         public string UserDescription { get; set; }
+        public string ProfileType { get; set; }
 
     }
 }

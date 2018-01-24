@@ -20,7 +20,9 @@ namespace THEcapstone.Controllers
             {
                 if (vet.UserId == userId)
                 {
-                    return View(vet);
+                    VetProfileViewModel model = new VetProfileViewModel();
+                    model.Vet = vet;
+                    return View(model);
                 }
                 
             }
@@ -65,6 +67,19 @@ namespace THEcapstone.Controllers
             db.Addresses.Add(Address);
             db.SaveChanges();
             return Address;
+        }
+        public ActionResult CreateProfile(int? id)
+        {
+            VetProfileViewModel model = new VetProfileViewModel();
+            foreach (Veterinarian vet in db.Veterinarians)
+            {
+                if (vet.VetId == id)
+                {
+
+                    model.Vet = vet;
+                }
+            }
+            return View(model);   
         }
     }
 }
