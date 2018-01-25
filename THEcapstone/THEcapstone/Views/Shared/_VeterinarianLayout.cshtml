@@ -37,19 +37,38 @@
     </div>
 </div>
 @section scripts{
-
+    
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCxzznBe8ybNXYxz0ZOyhRJQbbVGvam75s&callback=initMap"></script>   
     <script>
-         function checkForMap() {
+
+        function checkForMap() {
              var checkbox = document.getElementById('checkerino');
              let showPlease = document.getElementById('test');
              if (checkbox.checked == true) {
                  showPlease.style.display = 'block';
              }
-             else if (checkbox.check != true){
-                 showPlease.style.display = 'none'
+             else if (checkbox.checked != true){
+                 showPlease.style.display = 'none';
              }
-         }
-         
+        }
+        function showMap() {
+            let checkbox = document.getElementById('CheckBox');
+            let map = document.getElementById('map');
+            if (checkbox.checked != true) {
+                map.style.display = 'block';
+            }
+            else if (checkbox.checked == true) {
+                map.style.display = 'none';
+            }
+        }
+        function initMap() {
+            let position = { lat: 43.0389, lng: -87.9065 }
+            var map = new google.maps.Map(document.getElementById('map'), {
+                center: position,
+                zoom: 15
+            });
+            var marker = new google.maps.Marker({ position: position, map: map });
+        }
     </script>
-
+    
 }
