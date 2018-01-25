@@ -239,6 +239,10 @@
     <Compile Include="Migrations\201801251505077_added yet another field to vet profile model.Designer.cs">
       <DependentUpon>201801251505077_added yet another field to vet profile model.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201801251617405_k.cs" />
+    <Compile Include="Migrations\201801251617405_k.Designer.cs">
+      <DependentUpon>201801251617405_k.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Addresses.cs" />
@@ -362,6 +366,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201801251505077_added yet another field to vet profile model.resx">
       <DependentUpon>201801251505077_added yet another field to vet profile model.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201801251617405_k.resx">
+      <DependentUpon>201801251617405_k.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
