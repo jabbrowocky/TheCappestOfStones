@@ -5,6 +5,39 @@
     Layout = "~/Views/Shared/_VeterinarianLayout.cshtml";
 }
 
-<h2>CreateProfile</h2>
+<h2>Create Your Profile</h2>
+<hr />
+<br />
+    @using (Html.BeginForm())
+    {
+        <div class="row">
+            <div class="form-group col-md-offset-1">
+                @Html.LabelFor(model => model.VetProfile.UserDescription, new { @class = "col-md-2 control-label" })
+                <div class="col-md-10">
+                    @Html.TextAreaFor(m => m.VetProfile.UserDescription, 5 , 12 , new { @class = "form-control" })
+                </div>
+            </div>            
+        </div>
+        <br />
+        <div class="row">
+            <div class="form-group col-md-offset-1">
+                @Html.LabelFor(model => model.VetProfile.ServicesDescription, new { @class = "col-md-2 control-label" })
+                <div class="col-md-10">
+                    @Html.TextAreaFor(m => m.VetProfile.ServicesDescription, 5, 12, new { @class = "form-control" })
+                </div>
+            </div>
+        </div>
+        <br />
+        <div class="row">
+            <div class="form-group col-md-offset-1">
+                @Html.LabelFor(model => model.VetProfile.StaffDescription, new { @class = "col-md-2 control-label" })
+                <div class="col-md-10">
+                    @Html.TextAreaFor(m => m.VetProfile.StaffDescription, 5, 12, new { @class = "form-control" })
+                </div>
+            </div>
+        </div>
 
-<p>we did it boys!</p>
+
+    }
+
+

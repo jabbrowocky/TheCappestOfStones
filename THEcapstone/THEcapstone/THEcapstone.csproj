@@ -219,6 +219,26 @@
     <Compile Include="Migrations\201801242121186_fixing error.Designer.cs">
       <DependentUpon>201801242121186_fixing error.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201801251330046_added prop to profile model.cs" />
+    <Compile Include="Migrations\201801251330046_added prop to profile model.Designer.cs">
+      <DependentUpon>201801251330046_added prop to profile model.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201801251334510_yep.cs" />
+    <Compile Include="Migrations\201801251334510_yep.Designer.cs">
+      <DependentUpon>201801251334510_yep.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201801251342139_but wait there%27s more.cs" />
+    <Compile Include="Migrations\201801251342139_but wait there%27s more.Designer.cs">
+      <DependentUpon>201801251342139_but wait there%27s more.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201801251455031_lol.cs" />
+    <Compile Include="Migrations\201801251455031_lol.Designer.cs">
+      <DependentUpon>201801251455031_lol.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201801251505077_added yet another field to vet profile model.cs" />
+    <Compile Include="Migrations\201801251505077_added yet another field to vet profile model.Designer.cs">
+      <DependentUpon>201801251505077_added yet another field to vet profile model.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Addresses.cs" />
@@ -226,7 +246,7 @@
     <Compile Include="Models\CustomerCreateModel.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
-    <Compile Include="Models\Profile.cs" />
+    <Compile Include="Models\VetProfile.cs" />
     <Compile Include="Models\States.cs" />
     <Compile Include="Models\VerterinarianCreate.cs" />
     <Compile Include="Models\Veterinarian.cs" />
@@ -327,6 +347,21 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201801242121186_fixing error.resx">
       <DependentUpon>201801242121186_fixing error.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201801251330046_added prop to profile model.resx">
+      <DependentUpon>201801251330046_added prop to profile model.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201801251334510_yep.resx">
+      <DependentUpon>201801251334510_yep.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201801251342139_but wait there%27s more.resx">
+      <DependentUpon>201801251342139_but wait there%27s more.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201801251455031_lol.resx">
+      <DependentUpon>201801251455031_lol.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201801251505077_added yet another field to vet profile model.resx">
+      <DependentUpon>201801251505077_added yet another field to vet profile model.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

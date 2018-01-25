@@ -8,6 +8,6 @@ namespace THEcapstone.Models
     public class VetProfileViewModel
     {
         public Veterinarian Vet { get; set; }
-        public Profile VetProfile { get; set; }
+        public VetProfile VetProfile { get; set; }
     }
 }

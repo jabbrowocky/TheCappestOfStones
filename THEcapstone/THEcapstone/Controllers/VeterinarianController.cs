@@ -81,5 +81,14 @@ namespace THEcapstone.Controllers
             }
             return View(model);   
         }
+
+        [HttpPost]
+        public ActionResult CreateProfile(VetProfileViewModel model)
+        {
+
+
+            return RedirectToAction("Index","Veterinarian");
+        }
+
     }
 }
