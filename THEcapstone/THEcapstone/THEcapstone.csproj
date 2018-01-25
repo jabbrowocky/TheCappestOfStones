@@ -243,6 +243,10 @@
     <Compile Include="Migrations\201801251617405_k.Designer.cs">
       <DependentUpon>201801251617405_k.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201801251738144_huh.cs" />
+    <Compile Include="Migrations\201801251738144_huh.Designer.cs">
+      <DependentUpon>201801251738144_huh.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Addresses.cs" />
@@ -324,7 +328,7 @@
     <Content Include="Views\Customer\Index.cshtml" />
     <Content Include="Views\Veterinarian\Index.cshtml" />
     <Content Include="Views\Veterinarian\Create.cshtml" />
-    <Content Include="Views\Veterinarian\Profile.cshtml" />
+    <Content Include="Views\Veterinarian\ViewProfile.cshtml" />
     <Content Include="Views\Shared\_VeterinarianLayout.cshtml" />
     <Content Include="Views\Veterinarian\CreateProfile.cshtml" />
   </ItemGroup>
@@ -369,6 +373,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201801251617405_k.resx">
       <DependentUpon>201801251617405_k.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201801251738144_huh.resx">
+      <DependentUpon>201801251738144_huh.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

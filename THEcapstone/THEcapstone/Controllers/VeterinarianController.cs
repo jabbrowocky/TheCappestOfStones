@@ -116,5 +116,16 @@ namespace THEcapstone.Controllers
             addTo.ProfileId = model.ProfileId;
             db.SaveChanges();
         }
+        public ActionResult ViewProfile()
+        {
+            var userId = User.Identity.GetUserId();
+            VetProfileViewModel model = new VetProfileViewModel();
+            Veterinarian vetimus = db.Veterinarians.Where(m => m.UserId == userId).FirstOrDefault();
+            model.Vet = vetimus;           
+            var profile = db.VetProfiles.Where(m => m.ProfileId == vetimus.ProfileId).FirstOrDefault();
+            model.VetProfile = profile;
+            return View(model);
+           
+        }
     }
 }
