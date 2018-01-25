@@ -10,14 +10,16 @@ namespace THEcapstone.Models
     {
         [Key]
         public int ProfileId { get; set; }
-        [Display(Name = "Brief description of your Veterinary Hospital")]
+        [Display(Name = "Give a brief description of your Veterinary Hospital")]
         [Required]
         public string UserDescription { get; set; }
-        [Display(Name = "Description of the services you offer")]
+        [Display(Name = "Give a description of the services you offer")]
         public string ServicesDescription { get; set; } = null;
-        [Display(Name = "Description of your staff")]
+        [Display(Name = "Give a description of your staff")]
         public string StaffDescription { get; set; } = null;
+        [Display(Name = "Would you like your profile to display your location on a map?")]
         public bool ShowMap { get; set; }
+        [Display(Name = "What address would you like to use?")]
         public string MapAddress { get; set; } = null;
 
     }

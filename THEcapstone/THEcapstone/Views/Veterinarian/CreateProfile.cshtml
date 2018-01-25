@@ -36,8 +36,31 @@
                 </div>
             </div>
         </div>
-
-
+        <br />
+        <div class="row">
+            <div class="form-group col-md-offset-1">
+                @Html.LabelFor(model => model.VetProfile.ShowMap, new { @class = "col-md-2 control-label" })
+                <div class="col-md-10">
+                    @Html.CheckBoxFor(m => m.VetProfile.ShowMap, new { @class = "form-control", id = "checkerino", onclick = "checkForMap()" })
+                </div>
+            </div>
+        </div>
+        <br />
+        <div class="row" id="test" style="display:none">
+            <div class="form-group col-md-offset-1">
+                @Html.LabelFor(model => model.VetProfile.MapAddress, new { @class = "col-md-2 control-label" })
+                <div class="col-md-10">
+                    @Html.TextBoxFor(m => m.VetProfile.MapAddress, new { @class = "form-control" })
+                </div>
+            </div>
+        </div>
+        <br />
+        <div class="row">
+            <div class="form-group">
+                <div class="col-md-offset-5 col-md-10">
+                    <input type="submit" value="Create" class="btn btn-success btn-lg" />
+                </div>
+            </div>
+        </div>
     }
-
 
