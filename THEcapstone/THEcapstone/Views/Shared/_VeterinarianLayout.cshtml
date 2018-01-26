@@ -38,9 +38,9 @@
 </div>
 @section scripts{
     
-    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCxzznBe8ybNXYxz0ZOyhRJQbbVGvam75s&callback=initMap"></script>   
+    @*<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCxzznBe8ybNXYxz0ZOyhRJQbbVGvam75s&callback=initMap"></script>   
     <script>
-
+        
         function checkForMap() {
              var checkbox = document.getElementById('checkerino');
              let showPlease = document.getElementById('test');
@@ -62,13 +62,32 @@
             }
         }
         function initMap() {
-            let position = { lat: 43.0389, lng: -87.9065 }
+
+            let latLng = getLatLong('824 S 111th Pl, Milwaukee, WI')
+            let position = { lat: 43.0389, lng: -87.9065 };
             var map = new google.maps.Map(document.getElementById('map'), {
                 center: position,
                 zoom: 15
             });
-            var marker = new google.maps.Marker({ position: position, map: map });
+            
         }
-    </script>
+        function createMarker(position, map) {
+            var marker = new google.maps.Marker({ position: position, map: map });
+            return marker;
+        }
+        function getLatLong(geocoder, resultsMap) {
+                
+                
+                geocoder.geocode({ 'address': addressString }, function (results, status) {
+                        if (status == google.maps.GeocoderStatus.OK) {
+
+                        } else {
+                            alert('Geocode was not successful');
+                        }
+                        console.log(result);
+                    });
+        
+        }
+    </script>*@
     
 }

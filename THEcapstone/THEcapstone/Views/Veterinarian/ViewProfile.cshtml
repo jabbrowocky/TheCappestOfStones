@@ -37,7 +37,7 @@
         <div class="col-lg-6">
             <div class="panel panel-default">
                 <div class="panel-heading">
-                    <h3 class="panel-title">Our Staff:</h3>
+                    <h3 class="panel-title">Our Staff</h3>
                 </div>
                 <div class="panel-body">
 
@@ -48,13 +48,94 @@
         </div>
     </div>
     <div class="row">
+        <div class="col-lg-6">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title">Our Address Information</h3>
+                </div>
+                <div class="panel-body">
+
+                    <h4>todo</h4>
+
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-6">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title">Contact Us</h3>
+                </div>
+                <div class="panel-body">
+
+                    <h4>todo</h4>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
         <div class="col-md-2">
             <h4>Hide Map?</h4>
         </div>
         <div class="col-md-2">
-            @Html.CheckBox("Show Map", new { @class = "form-control", id = "CheckBox", onclick = "showMap()"})
+            @Html.CheckBox("Show Map", new { @class = "form-control", id = "CheckBox", onclick = "showMap()" })
         </div>
     </div>
          
     <div id="map" class="col-md-12" style="height:500px; width:100%"></div>
- 
+
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCxzznBe8ybNXYxz0ZOyhRJQbbVGvam75s&callback=initMap"></script>
+    <script>
+
+            function checkForMap() {
+                 var checkbox = document.getElementById('checkerino');
+                 let showPlease = document.getElementById('test');
+                 if (checkbox.checked == true) {
+                     showPlease.style.display = 'block';
+                 }
+                 else if (checkbox.checked != true){
+                     showPlease.style.display = 'none';
+                 }
+            }
+            function showMap() {
+                let checkbox = document.getElementById('CheckBox');
+                let map = document.getElementById('map');
+                if (checkbox.checked != true) {
+                    map.style.display = 'block';
+                }
+                else if (checkbox.checked == true) {
+                    map.style.display = 'none';
+                }
+            }
+            function initMap() {
+
+                //let latLng = getLatLong('824 S 111th Pl, Milwaukee, WI')
+                let position = { lat: 43.0389, lng: -87.9065 };
+                var map = new google.maps.Map(document.getElementById('map'), {
+                    center: position,
+                    zoom: 15
+                });
+                var geocoder = new google.maps.Geocoder();
+                getLatLong(geocoder, map)
+            }
+            function createMarker(position, map) {
+                var marker = new google.maps.Marker({ position: position, map: map });
+                return marker;
+            }
+            function getLatLong(geocoder, resultsMap) {
+
+                @{string address = Model.VetProfile.MapAddress;}
+                var addressString = '@address';
+                    geocoder.geocode({ address: addressString }, function (results, status) {
+                            if (status == google.maps.GeocoderStatus.OK) {
+                                resultsMap.setCenter(results[0].geometry.location);
+                                createMarker(results[0].geometry.location, resultsMap);
+                            } else {
+                                alert('Geocode was not successful');
+                            }
+                           
+                        });
+
+            }
+    </script>
+     
