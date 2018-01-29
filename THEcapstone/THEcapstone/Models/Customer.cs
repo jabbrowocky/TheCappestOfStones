@@ -18,6 +18,7 @@ namespace THEcapstone.Models
         public string UserId { get; set; }
         [ForeignKey("UserId")]
         public virtual ApplicationUser User { get; set; }
-        public List <Message> Inbox { get; set; }
+        public List<Message> Inbox { get; set; }
+        
     }
 }

@@ -1,10 +1,10 @@
-﻿@model THEcapstone.Models.Customer
+﻿
 @{
     ViewBag.Title = "_CustomerLayout";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Veterinarian Home</h2>
+<h2>Customer Home</h2>
 
 <hr />
 <div class="row">
@@ -12,9 +12,9 @@
         <ul class="list-group">
 
             
-          @Html.ActionLink("Home", "Index", new { }, new { @class = "list-group-item" });
-          @Html.ActionLink("Find Services", "FindServices", new { }, new { @class = "list-group-item" });           
-                                                                                                                                @Html.ActionLink("Inbox", "Inbox", "Customer", new { id = Model.CustId}, new{ @class = "list-group-item" })
+          @Html.ActionLink("Home", "Index", new { }, new { @class = "list-group-item" })
+          @Html.ActionLink("Find Services", "FindServices", new { }, new { @class = "list-group-item" })          
+          @Html.ActionLink("Inbox", "Inbox", "Customer", new { id = Model.Cust.CustId}, new{ @class = "list-group-item" })
             
 
         </ul>

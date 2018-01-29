@@ -16,6 +16,9 @@ namespace THEcapstone.Models
         public Addresses Address { get; set; }
         public string UserId { get; set; }
         public virtual ApplicationUser User { get; set; }
+        public int? ProfileId { get; set; } = null;
+        public WalkerProfile Profile { get; set; }
+        public string FeedbackRating { get; set; }
         
     }
 }

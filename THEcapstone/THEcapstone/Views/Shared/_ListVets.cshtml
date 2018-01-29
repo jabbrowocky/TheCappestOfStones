@@ -1,0 +1,28 @@
+﻿@model THEcapstone.Models.FindServicesViewModel
+
+
+@if (Model.Vet.Count != 0)
+{
+    <table class="table table-hover">
+        @foreach (var vet in Model.Vet)
+        {
+
+            <tr>
+                <td>
+                    @vet.VetName
+                </td>
+                <td>
+                    @Html.ActionLink("View Profile", "ViewVetProfile", new { id = vet.VetId})
+                </td>
+            </tr>
+        }
+    </table>
+}
+else
+{
+
+    <h1> No results </h1>
+
+
+
+}

@@ -173,6 +173,7 @@ namespace THEcapstone.Controllers
             var userId = User.Identity.GetUserId();
             VetProfileViewModel model = new VetProfileViewModel();
             model.Msg = db.Messages.Find(id);
+            model.Msg.Opened = true;
             model.Vet = db.Veterinarians.Where(u => u.UserId == userId).FirstOrDefault();
             model.VetProfile = db.VetProfiles.Where(p => p.ProfileId == model.Vet.ProfileId).FirstOrDefault();
             

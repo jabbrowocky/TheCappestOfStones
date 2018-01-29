@@ -1,0 +1,28 @@
+﻿@model THEcapstone.Models.FindServicesViewModel
+
+
+@if (Model.Walker.Count != 0)
+{
+    <table class="table">
+        @foreach (var walker in Model.Walker)
+        {
+
+            <tr>
+                <td>
+                    @walker.WalkerFirstName + " " + walker.WalkerLastName
+                </td>
+                <td>
+                    @Html.ActionLink("View Profile", "", "")
+                </td>
+            </tr>
+        }
+    </table>
+}
+else
+{
+
+    <h1> No results </h1>
+
+
+
+}

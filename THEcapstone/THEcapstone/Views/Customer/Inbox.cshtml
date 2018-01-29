@@ -1,4 +1,4 @@
-﻿@model THEcapstone.Models.Customer
+﻿@model THEcapstone.Models.CustInboxViewModel
 @{
     ViewBag.Title = "Inbox";
     Layout = "~/Views/Shared/_CustomerLayout.cshtml";
@@ -6,19 +6,19 @@
 
 <h2>Inbox</h2>
 
-@{if (Model.Inbox.Count != 0)
+@{if (Model.Cust.Inbox.Count != 0)
     {
         <hr />
         <div>
             <table class="table table-hover">
 
-                @foreach (var message in Model.Inbox)
+                @foreach (var message in Model.Cust.Inbox)
                 {
                     <tr>
                         <td>
                             @if (message.Opened == true)
                             {
-                                <p>opened</p>
+                                <p>Read</p>
                             }
                             else
                             {
@@ -29,8 +29,8 @@
                             @message.SentOn
                         </td>
                         <td>
-                            @Html.ActionLink("Open", "ReadMsg", "Veterinarian", new { id = message.MsgId }, new { @class = "btn btn-success btn-sm" })
-                            @Html.ActionLink("Delete", "DeleteMsg", "Veterinarian", new { id = message.MsgId }, new { @class = "btn btn-danger btn-sm" })
+                            @Html.ActionLink("Open", "ReadMsg", "Customer", new { id = message.MsgId }, new { @class = "btn btn-success btn-sm" })
+                            @Html.ActionLink("Delete", "DeleteMsg", "Customer", new { id = message.MsgId }, new { @class = "btn btn-danger btn-sm" })
                         </td>
                     </tr>
 

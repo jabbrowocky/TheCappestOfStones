@@ -19,38 +19,41 @@ namespace THEcapstone.Controllers
             var dawgWalker = db.DogWalkers.Where(d => d.UserId == userId).FirstOrDefault();
             if (dawgWalker == null)
             {
-                RedirectToAction("Create", "DogWalker");
+                
+                return RedirectToAction("Create", "DogWalker");
             }
             DogWalker walker = dawgWalker;
             return View(walker);
         }
+        [HttpGet]
         public ActionResult Create()
         {
             if (User.Identity.IsAuthenticated)
             {
                 DogWalkerCreateModel model = new DogWalkerCreateModel();
+                model.Walker = new DogWalker();
                 model.StateList = db.States.Select(m => m).ToList();
                 return View(model);
             }
             return RedirectToAction("Index", "Home");
         }
         [HttpPost]
-        public ActionResult Create(DogWalkerCreateModel walker)
+        public ActionResult Create(DogWalkerCreateModel formObject)
         {
             var userId = User.Identity.GetUserId();
+            DogWalker toAdd = new DogWalker();
             if (ModelState.IsValid)
-            {
-                DogWalker toAdd = new DogWalker();
+            {                
                 toAdd.UserId = userId;
-                toAdd.WalkerFirstName = walker.Walker.WalkerFirstName;
-                toAdd.WalkerLastName = walker.Walker.WalkerLastName;
-                walker.Address.StateId = walker.State.Id;
-                var address = CreateAddress(walker.Address);
+                toAdd.WalkerFirstName = formObject.Walker.WalkerFirstName;
+                toAdd.WalkerLastName = formObject.Walker.WalkerLastName;
+                formObject.Address.StateId = formObject.State.Id;
+                var address = CreateAddress(formObject.Address);
                 toAdd.AddressId = address.AddressId;
                 db.DogWalkers.Add(toAdd);
                 db.SaveChanges();
             }
-            return RedirectToAction("Index", "Customer");
+            return RedirectToAction("Index", "DogWalker", toAdd);
         }
         private Addresses CreateAddress(Addresses address)
         {
@@ -63,7 +66,10 @@ namespace THEcapstone.Controllers
             db.SaveChanges();
             return Address;
         }
-
+        public ActionResult CreateProfile()
+        {
+            return View();
+        }
     }
 
 }

@@ -38,5 +38,6 @@ namespace THEcapstone.Models
         public DbSet<PetSitter> PetSitters { get; set; }
         public DbSet<DogWalker> DogWalkers { get; set; }
         public DbSet<Message> Messages { get; set; }
+        public DbSet<WalkerProfile> WalkerProfiles { get; set; }
     }
 }

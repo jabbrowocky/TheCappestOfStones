@@ -28,9 +28,13 @@ namespace THEcapstone.Controllers
             {
                 return RedirectToAction("Index", "Veterinarian");
             }
-            if (User.IsInRole("DogWalker"))
+            if (User.IsInRole("Dog Walker"))
             {
                 return RedirectToAction("Index", "DogWalker");
+            }
+            if (User.IsInRole("Pet-Sitter"))
+            {
+                return RedirectToAction("Index", "PetSitter");
             }
           
             return View();

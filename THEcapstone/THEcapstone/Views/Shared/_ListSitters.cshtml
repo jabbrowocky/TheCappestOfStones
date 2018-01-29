@@ -1,0 +1,30 @@
+﻿
+@model THEcapstone.Models.FindServicesViewModel
+
+
+@if (Model.Sitter.Count != 0)
+{
+    <table class="table">
+        @foreach (var sitter in Model.Sitter)
+        {
+
+            <tr>
+                <td>
+                    @sitter.SitterFirstName + " " + sitter.SitterLastName
+                </td>
+                <td>
+                    @Html.ActionLink("View Profile", "", "")
+                </td>
+            </tr>
+        }
+    </table>
+
+}
+else
+{
+
+    <h1> No results </h1>
+
+
+
+}

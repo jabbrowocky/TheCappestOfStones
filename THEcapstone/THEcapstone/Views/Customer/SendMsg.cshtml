@@ -1,0 +1,37 @@
+﻿@model THEcapstone.Models.CustomerSendModel
+@{
+    ViewBag.Title = "SendMsg";
+    Layout = "~/Views/Shared/_CustomerLayout.cshtml";
+}
+
+<h2>SendMsg</h2>
+
+@using (Html.BeginForm())
+{
+    <div class="row">
+        <div class="form-group col-md-offset-1">
+            <h4>To: @Model.Vet.VetName</h4>
+            @Html.HiddenFor(u => u.Vet.UserId)
+            @Html.HiddenFor(u => u.Cust.UserId)
+            
+        </div>
+    </div>
+    <br />
+    <div class="row">
+        <div class="form-group col-md-offset-1">
+            @Html.Label("Message:")
+            <div class="col-md-10">
+                @Html.TextAreaFor(m => m.Msg.MsgText, 5, 12, new { @class = "form-control" })
+            </div>
+        </div>
+    </div>
+    <br />
+        
+    <div class="row">
+        <div class="form-group">
+            <div class="col-md-offset-5 col-md-10">
+                <input type="submit" value="Send" class="btn btn-success btn-sm" />
+            </div>
+        </div>
+    </div>
+}

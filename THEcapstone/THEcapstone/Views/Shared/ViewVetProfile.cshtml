@@ -1,0 +1,154 @@
+﻿@model THEcapstone.Models.ViewProfileModel
+@{
+    ViewBag.Title = "ViewVetProfile";
+    Layout = "~/Views/Shared/_CustomerLayout.cshtml";
+}
+<div class="row">
+    <div class="col-lg-4">
+        <h1>Veterinarian Profile</h1>
+    </div>
+    <div class="col-lg-10 col-lg-offset-10">
+        <h4>I'm here:</h4>
+        @Html.ActionLink("Send Message","SendMsg", new { id = Model.VetProfile.ProfileId, name = "Veterinarian" }, new { @class = "btn btn-primary" })
+    </div>
+</div>
+
+<hr />
+<br />
+
+@if (Model.VetProfile != null) {
+    <div class="row">
+        <div class="col-md-12">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title">About Us</h3>
+                </div>
+                <div class="panel-body">
+
+                    <h4>@Model.VetProfile.UserDescription</h4>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-6">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title">Services We Provide</h3>
+                </div>
+                <div class="panel-body">
+
+                    <h4>@Model.VetProfile.ServicesDescription</h4>
+
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-6">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title">Our Staff</h3>
+                </div>
+                <div class="panel-body">
+
+                    <h4>@Model.VetProfile.StaffDescription</h4>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-6">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title">Our Address Information</h3>
+                </div>
+                <div class="panel-body">
+
+                    <h4>todo</h4>
+
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-6">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title">Contact Us</h3>
+                </div>
+                <div class="panel-body">
+
+                    <h4>todo</h4>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    if (Model.VetProfile.ShowMap == true)
+    {
+        <div class="row">
+            <div class="col-md-2">
+                <h4>Hide Map?</h4>
+            </div>
+            <div class="col-md-2">
+                @Html.CheckBox("Show Map", new { @class = "form-control", id = "CheckBox", onclick = "showMap()" })
+            </div>
+        </div>
+
+        <div id="map" class="col-md-12" style="height:500px; width:100%"></div>
+    }
+}
+else
+{
+    <h1> This user has not yet set up their profile. </h1>
+}
+@if (Model.VetProfile != null) {
+@section scripterino{
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCxzznBe8ybNXYxz0ZOyhRJQbbVGvam75s&callback=initMap"></script>
+    <script>
+
+
+            function showMap() {
+                let checkbox = document.getElementById('CheckBox');
+                let map = document.getElementById('map');
+                if (checkbox.checked != true) {
+                    map.style.display = 'block';
+                }
+                else if (checkbox.checked == true) {
+                    map.style.display = 'none';
+                }
+            }
+            function initMap() {
+
+                let position = { lat: 43.0389, lng: -87.9065 };
+                var map = new google.maps.Map(document.getElementById('map'), {
+                    center: position,
+                    zoom: 15
+                });
+                var geocoder = new google.maps.Geocoder();
+              
+                getLatLong(geocoder, map);
+               
+            }
+            function createMarker(position, map) {
+                var marker = new google.maps.Marker({ position: position, map: map });
+                return marker;
+            }
+
+            function getLatLong(geocoder, resultsMap) {
+
+                @{string address = Model.VetProfile.MapAddressStreet + " " + Model.VetProfile.MapAddressCity + " " + Model.VetProfile.MapAddressState;}
+                var addressString = '@address';
+                    geocoder.geocode({ address: addressString }, function (results, status) {
+                            if (status == google.maps.GeocoderStatus.OK) {
+                                resultsMap.setCenter(results[0].geometry.location);
+                                createMarker(results[0].geometry.location, resultsMap);
+                            } else {
+                                alert('Geocode was not successful');
+                            }
+
+                        });
+
+            }
+    </script>
+}
+                    }

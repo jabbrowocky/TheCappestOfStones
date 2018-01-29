@@ -1,0 +1,77 @@
+﻿@model THEcapstone.Models.FindServicesViewModel
+@{
+    ViewBag.Title = "FindServices";
+    Layout = "~/Views/Shared/_CustomerLayout.cshtml";
+}
+
+<h2>Find Services</h2>
+
+
+
+<div class="btn-group" role="group" aria-label="...">
+    <button type="button" class="btn btn-primary" id = "button1" onclick = "controlView(buttonControls.vetButton, divControls.vetDiv)">Veterinarians</button>
+    <button type="button" class="btn btn-primary" id = "button2" onclick = "controlView(buttonControls.walkerButton, divControls.walkerDiv)">Dog Walkers</button>
+    <button type="button" class="btn btn-primary" id = "button3" onclick = "controlView(buttonControls.sitterButton, divControls.sitterDiv)">Pet Sitters</button>
+</div>
+<hr />
+<br />
+<div id="vet" style="display:none">@Html.Partial("_ListVets", Model)</div>
+<div id="walker" style="display:none">@Html.Partial("_ListWalkers", Model)</div>
+<div id="sitter" style="display:none">@Html.Partial("_ListSitters", Model)</div>
+
+@section scripterino{
+    
+    <script>
+
+        var buttonControls = {
+
+            vetButton: document.getElementById('button1'),
+            walkerButton: document.getElementById('button2'),
+            sitterButton: document.getElementById('button3')
+
+        };
+
+        var divControls = {
+
+            vetDiv: document.getElementById('vet'),
+            walkerDiv: document.getElementById('walker'),
+            sitterDiv: document.getElementById('sitter')
+
+        };
+
+        function controlView(activeButton, activeDiv) {
+
+            buttonControls.vetButton.disabled = false;
+            buttonControls.walkerButton.disabled = false;
+            buttonControls.sitterButton.disabled = false;
+
+            divControls.vetDiv.style.display = "none";
+            divControls.walkerDiv.style.display = "none";
+            divControls.sitterDiv.style.display = "none";
+
+            activeButton.disabled = true;
+            activeDiv.style.display = "block";
+
+        }
+        //function showDiv(showDiv, hideDivOne, hideDiveTwo, disable, activeOne, activeTwo) {
+        //    var div = document.getElementById(showDiv);
+        //    var hiddenDiv1 = document.getElementById(hideDivOne);
+        //    var hiddenDiv2 = document.getElementById(hideDiveTwo);
+        //    var disableButton = document.getElementById(disable);
+        //    var active1 = document.getElementById(activeOne);
+        //    var active2 = document.getElementById(activeTwo);
+        //    if (div.style.display == 'none') {
+        //        div.style.display = "block";
+        //        hiddenDiv1.style.display = "none";
+        //        hiddenDiv2.style.display = "none";
+        //        disableButton.disabled = true;
+        //        active1.disabled = false;
+        //        active2.disabled = false;
+        //    }
+        //}
+        //showDiv('vet', 'walker', 'sitter', 'button1', 'button2', 'button3')
+        //showDiv('walker', 'vet', 'sitter', 'button2', 'button1', 'button3')
+        //showDiv('sitter', 'vet', 'walker', 'button3', 'button1', 'button2')
+    </script>
+    
+    }

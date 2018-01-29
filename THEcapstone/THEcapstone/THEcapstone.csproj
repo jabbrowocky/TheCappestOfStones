@@ -204,106 +204,48 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201801241412003_init.cs" />
-    <Compile Include="Migrations\201801241412003_init.Designer.cs">
-      <DependentUpon>201801241412003_init.cs</DependentUpon>
+    <Compile Include="Migrations\201801290252045_init.cs" />
+    <Compile Include="Migrations\201801290252045_init.Designer.cs">
+      <DependentUpon>201801290252045_init.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201801241458437_ffs.cs" />
-    <Compile Include="Migrations\201801241458437_ffs.Designer.cs">
-      <DependentUpon>201801241458437_ffs.cs</DependentUpon>
+    <Compile Include="Migrations\201801292039503_added rating column.cs" />
+    <Compile Include="Migrations\201801292039503_added rating column.Designer.cs">
+      <DependentUpon>201801292039503_added rating column.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201801241514264_made profile id nullable.cs" />
-    <Compile Include="Migrations\201801241514264_made profile id nullable.Designer.cs">
-      <DependentUpon>201801241514264_made profile id nullable.cs</DependentUpon>
+    <Compile Include="Migrations\201801292056361_lol.cs" />
+    <Compile Include="Migrations\201801292056361_lol.Designer.cs">
+      <DependentUpon>201801292056361_lol.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201801242121186_fixing error.cs" />
-    <Compile Include="Migrations\201801242121186_fixing error.Designer.cs">
-      <DependentUpon>201801242121186_fixing error.cs</DependentUpon>
+    <Compile Include="Migrations\201801292058000_for the lols.cs" />
+    <Compile Include="Migrations\201801292058000_for the lols.Designer.cs">
+      <DependentUpon>201801292058000_for the lols.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201801251330046_added prop to profile model.cs" />
-    <Compile Include="Migrations\201801251330046_added prop to profile model.Designer.cs">
-      <DependentUpon>201801251330046_added prop to profile model.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201801251334510_yep.cs" />
-    <Compile Include="Migrations\201801251334510_yep.Designer.cs">
-      <DependentUpon>201801251334510_yep.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201801251342139_but wait there%27s more.cs" />
-    <Compile Include="Migrations\201801251342139_but wait there%27s more.Designer.cs">
-      <DependentUpon>201801251342139_but wait there%27s more.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201801251455031_lol.cs" />
-    <Compile Include="Migrations\201801251455031_lol.Designer.cs">
-      <DependentUpon>201801251455031_lol.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201801251505077_added yet another field to vet profile model.cs" />
-    <Compile Include="Migrations\201801251505077_added yet another field to vet profile model.Designer.cs">
-      <DependentUpon>201801251505077_added yet another field to vet profile model.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201801251617405_k.cs" />
-    <Compile Include="Migrations\201801251617405_k.Designer.cs">
-      <DependentUpon>201801251617405_k.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201801251738144_huh.cs" />
-    <Compile Include="Migrations\201801251738144_huh.Designer.cs">
-      <DependentUpon>201801251738144_huh.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201801260217035_come on.cs" />
-    <Compile Include="Migrations\201801260217035_come on.Designer.cs">
-      <DependentUpon>201801260217035_come on.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201801260233407_update.cs" />
-    <Compile Include="Migrations\201801260233407_update.Designer.cs">
-      <DependentUpon>201801260233407_update.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201801261616086_more tables...yay....cs" />
-    <Compile Include="Migrations\201801261616086_more tables...yay....Designer.cs">
-      <DependentUpon>201801261616086_more tables...yay....cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201801270057292_for the lols.cs" />
-    <Compile Include="Migrations\201801270057292_for the lols.Designer.cs">
-      <DependentUpon>201801270057292_for the lols.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201801280308322_added message context.cs" />
-    <Compile Include="Migrations\201801280308322_added message context.Designer.cs">
-      <DependentUpon>201801280308322_added message context.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201801280317512_lol1.cs" />
-    <Compile Include="Migrations\201801280317512_lol1.Designer.cs">
-      <DependentUpon>201801280317512_lol1.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201801280705075_changed column name.cs" />
-    <Compile Include="Migrations\201801280705075_changed column name.Designer.cs">
-      <DependentUpon>201801280705075_changed column name.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201801280709408_yay.cs" />
-    <Compile Include="Migrations\201801280709408_yay.Designer.cs">
-      <DependentUpon>201801280709408_yay.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201801290050071_perturbed currently.cs" />
-    <Compile Include="Migrations\201801290050071_perturbed currently.Designer.cs">
-      <DependentUpon>201801290050071_perturbed currently.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201801290051092_please work.cs" />
-    <Compile Include="Migrations\201801290051092_please work.Designer.cs">
-      <DependentUpon>201801290051092_please work.cs</DependentUpon>
+    <Compile Include="Migrations\201801292100215_lol fixed.cs" />
+    <Compile Include="Migrations\201801292100215_lol fixed.Designer.cs">
+      <DependentUpon>201801292100215_lol fixed.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Addresses.cs" />
+    <Compile Include="Models\CustInboxViewModel.cs" />
     <Compile Include="Models\Customer.cs" />
     <Compile Include="Models\CustomerCreateModel.cs" />
+    <Compile Include="Models\CustomerSendModel.cs" />
     <Compile Include="Models\DogWalker.cs" />
     <Compile Include="Models\DogWalkerCreateModel.cs" />
+    <Compile Include="Models\FindServicesViewModel.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\Message.cs" />
     <Compile Include="Models\PetSitter.cs" />
+    <Compile Include="Models\PetSitterProfile.cs" />
     <Compile Include="Models\VetProfile.cs" />
     <Compile Include="Models\States.cs" />
     <Compile Include="Models\VerterinarianCreate.cs" />
     <Compile Include="Models\Veterinarian.cs" />
     <Compile Include="Models\VetProfileViewModel.cs" />
+    <Compile Include="Models\ViewProfileModel.cs" />
+    <Compile Include="Models\WalkerProfile.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
@@ -383,6 +325,14 @@
     <Content Include="Views\Veterinarian\ReadMsg.cshtml" />
     <Content Include="Views\Shared\_CustomerLayout.cshtml" />
     <Content Include="Views\Customer\Inbox.cshtml" />
+    <Content Include="Views\Customer\ReadMsg.cshtml" />
+    <Content Include="Views\Customer\FindServices.cshtml" />
+    <Content Include="Views\Shared\_ListVets.cshtml" />
+    <Content Include="Views\Shared\_ListWalkers.cshtml" />
+    <Content Include="Views\Shared\_ListSitters.cshtml" />
+    <Content Include="Views\Shared\ViewVetProfile.cshtml" />
+    <Content Include="Views\Customer\SendMsg.cshtml" />
+    <Content Include="Views\Shared\_WalkerLayout.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -396,68 +346,20 @@
     <Content Include="Scripts\jquery-1.10.2.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201801241412003_init.resx">
-      <DependentUpon>201801241412003_init.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201801290252045_init.resx">
+      <DependentUpon>201801290252045_init.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201801241458437_ffs.resx">
-      <DependentUpon>201801241458437_ffs.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201801292039503_added rating column.resx">
+      <DependentUpon>201801292039503_added rating column.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201801241514264_made profile id nullable.resx">
-      <DependentUpon>201801241514264_made profile id nullable.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201801292056361_lol.resx">
+      <DependentUpon>201801292056361_lol.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201801242121186_fixing error.resx">
-      <DependentUpon>201801242121186_fixing error.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201801292058000_for the lols.resx">
+      <DependentUpon>201801292058000_for the lols.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201801251330046_added prop to profile model.resx">
-      <DependentUpon>201801251330046_added prop to profile model.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201801251334510_yep.resx">
-      <DependentUpon>201801251334510_yep.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201801251342139_but wait there%27s more.resx">
-      <DependentUpon>201801251342139_but wait there%27s more.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201801251455031_lol.resx">
-      <DependentUpon>201801251455031_lol.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201801251505077_added yet another field to vet profile model.resx">
-      <DependentUpon>201801251505077_added yet another field to vet profile model.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201801251617405_k.resx">
-      <DependentUpon>201801251617405_k.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201801251738144_huh.resx">
-      <DependentUpon>201801251738144_huh.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201801260217035_come on.resx">
-      <DependentUpon>201801260217035_come on.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201801260233407_update.resx">
-      <DependentUpon>201801260233407_update.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201801261616086_more tables...yay....resx">
-      <DependentUpon>201801261616086_more tables...yay....cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201801270057292_for the lols.resx">
-      <DependentUpon>201801270057292_for the lols.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201801280308322_added message context.resx">
-      <DependentUpon>201801280308322_added message context.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201801280317512_lol1.resx">
-      <DependentUpon>201801280317512_lol1.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201801280705075_changed column name.resx">
-      <DependentUpon>201801280705075_changed column name.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201801280709408_yay.resx">
-      <DependentUpon>201801280709408_yay.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201801290050071_perturbed currently.resx">
-      <DependentUpon>201801290050071_perturbed currently.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201801290051092_please work.resx">
-      <DependentUpon>201801290051092_please work.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201801292100215_lol fixed.resx">
+      <DependentUpon>201801292100215_lol fixed.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
