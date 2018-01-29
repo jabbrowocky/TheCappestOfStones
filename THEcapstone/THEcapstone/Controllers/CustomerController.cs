@@ -68,6 +68,13 @@ namespace THEcapstone.Controllers
             db.SaveChanges();
             return Address;
         }
-       
+        public ActionResult Inbox (int? id)
+        {
+            Customer custy = db.Customers.Where(c => c.CustId == id).FirstOrDefault();
+            custy.Inbox = db.Messages.Where(m => m.TargetId == custy.UserId).ToList();
+            custy.Inbox = custy.Inbox.Where(d => d.Deleted == false).ToList();
+            return View(custy);
+        }
+        
     }
 }

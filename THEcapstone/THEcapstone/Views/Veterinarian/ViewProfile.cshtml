@@ -73,6 +73,8 @@
             </div>
         </div>
     </div>
+    @if (Model.VetProfile.ShowMap == true)
+    {
     <div class="row">
         <div class="col-md-2">
             <h4>Hide Map?</h4>
@@ -81,22 +83,15 @@
             @Html.CheckBox("Show Map", new { @class = "form-control", id = "CheckBox", onclick = "showMap()" })
         </div>
     </div>
-         
-    <div id="map" class="col-md-12" style="height:500px; width:100%"></div>
 
+    <div id="map" class="col-md-12" style="height:500px; width:100%"></div>
+    }
+
+@section scriptsy{
     <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCxzznBe8ybNXYxz0ZOyhRJQbbVGvam75s&callback=initMap"></script>
     <script>
 
-            function checkForMap() {
-                 var checkbox = document.getElementById('checkerino');
-                 let showPlease = document.getElementById('test');
-                 if (checkbox.checked == true) {
-                     showPlease.style.display = 'block';
-                 }
-                 else if (checkbox.checked != true){
-                     showPlease.style.display = 'none';
-                 }
-            }
+            
             function showMap() {
                 let checkbox = document.getElementById('CheckBox');
                 let map = document.getElementById('map');
@@ -109,7 +104,6 @@
             }
             function initMap() {
 
-                //let latLng = getLatLong('824 S 111th Pl, Milwaukee, WI')
                 let position = { lat: 43.0389, lng: -87.9065 };
                 var map = new google.maps.Map(document.getElementById('map'), {
                     center: position,
@@ -124,7 +118,7 @@
             }
             function getLatLong(geocoder, resultsMap) {
 
-                @{string address = Model.VetProfile.MapAddress;}
+                @{string address = Model.VetProfile.MapAddressStreet + " " + Model.VetProfile.MapAddressCity + " " + Model.VetProfile.MapAddressState;}
                 var addressString = '@address';
                     geocoder.geocode({ address: addressString }, function (results, status) {
                             if (status == google.maps.GeocoderStatus.OK) {
@@ -138,4 +132,4 @@
 
             }
     </script>
-     
+     }

@@ -46,13 +46,35 @@
             </div>
         </div>
         <br />
-        <div class="row" id="test" style="display:none">
-            <div class="form-group col-md-offset-1">
-                @Html.LabelFor(model => model.VetProfile.MapAddress, new { @class = "col-md-2 control-label" })
-                <div class="col-md-10">
-                    @Html.TextBoxFor(m => m.VetProfile.MapAddress, new { @class = "form-control" })
+        <div id="test" style="display:none">
+            <div class="row">
+                <div class="form-group col-md-offset-1">
+                    @Html.LabelFor(model => model.VetProfile.MapAddressStreet, new { @class = "col-md-2 control-label" })
+                    <div class="col-md-10">
+                        @Html.TextBoxFor(m => m.VetProfile.MapAddressStreet, new { @class = "form-control" })
+                        <br />
+                    </div>
                 </div>
-                
+            </div>
+            <br />
+            <div class="row">
+                <div class="form-group col-md-offset-1">
+                    @Html.LabelFor(model => model.VetProfile.MapAddressCity, new { @class = "col-md-2 control-label" })
+                    <div class="col-md-10">
+                        @Html.TextBoxFor(m => m.VetProfile.MapAddressCity, new { @class = "form-control" })
+                        <br />
+                    </div>
+                </div>
+            </div>
+            <br />
+            <div class="row">
+                <div class="form-group col-md-offset-1">
+                    @Html.LabelFor(model => model.VetProfile.MapAddressState, new { @class = "col-md-2 control-label" })
+                    <div class="col-md-10">
+                        @Html.TextBoxFor(m => m.VetProfile.MapAddressState, new { @class = "form-control" })
+                        <br />
+                    </div>
+                </div>
             </div>
         </div>
         <br />
@@ -65,3 +87,18 @@
         </div>
     }
 
+@section scriptsy{
+    
+    <script>
+        function checkForMap() {
+            var checkbox = document.getElementById('checkerino');
+            let showPlease = document.getElementById('test');
+            if (checkbox.checked == true) {
+                showPlease.style.display = 'block';
+            }
+            else if (checkbox.checked != true) {
+                showPlease.style.display = 'none';
+            }
+        }
+    </script>
+    }

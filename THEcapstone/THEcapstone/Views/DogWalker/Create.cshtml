@@ -1,0 +1,75 @@
+﻿
+@{
+    Layout = null;
+}
+
+@model THEcapstone.Models.DogWalkerCreateModel
+
+
+<br />
+<h4>Customer Information</h4>
+<hr />
+
+
+@using (Html.BeginForm())
+{
+    <div class="row">
+        <div class="form-group">
+            @Html.LabelFor(m => m.Walker.WalkerFirstName, new { @class = "col-md-2 control-label" })
+            <div class="col-md-10">
+                @Html.TextBoxFor(m => m.Walker.WalkerFirstName, new { @class = "form-control" })
+            </div>
+        </div>
+    </div>
+    <br />
+        <div class="row">
+            <div class="form-group">
+                @Html.LabelFor(m => m.Walker.WalkerLastName, new { @class = "col-md-2 control-label" })
+                <div class="col-md-10">
+                    @Html.TextBoxFor(m => m.Walker.WalkerLastName, new { @class = "form-control" })
+                </div>
+            </div>
+        </div>
+        <br />
+        <div class="row">
+            <div class="form-group">
+                @Html.LabelFor(m => m.Address.Street, new { @class = "col-md-2 control-label" })
+                <div class="col-md-10">
+                    @Html.TextBoxFor(m => m.Address.Street, new { @class = "form-control" })
+                </div>
+            </div>
+        </div>
+        <br />
+        <div class="row">
+            <div class="form-group">
+                @Html.LabelFor(m => m.Address.City, new { @class = "col-md-2 control-label" })
+                <div class="col-md-10">
+                    @Html.TextBoxFor(m => m.Address.City, new { @class = "form-control" })
+                </div>
+            </div>
+        </div>
+        <br />
+        <div class="row">
+            <div class="form-group">
+                @Html.LabelFor(m => m.State.StateName, new { @class = "col-md-2 control-label" })
+                <div class="col-md-10">
+                    @Html.DropDownListFor(m => m.State.Id, new SelectList(Model.StateList, "Id", "StateName"), new { @class = "form-control" })
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="form-group">
+                @Html.LabelFor(m => m.Address.ZipCode, new { @class = "col-md-2 control-label" })
+                <div class="col-md-10">
+                    @Html.TextBoxFor(m => m.Address.ZipCode, new { @class = "form-control" })
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <input type="submit" value="Create" class="btn btn-success btn-sm" />
+                </div>
+            </div>
+        </div>
+}

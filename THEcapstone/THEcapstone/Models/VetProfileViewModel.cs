@@ -9,5 +9,6 @@ namespace THEcapstone.Models
     {
         public Veterinarian Vet { get; set; }
         public VetProfile VetProfile { get; set; }
+        public Message Msg { get; set; } = null;
     }
 }

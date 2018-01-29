@@ -4,29 +4,31 @@
 <h2>Admin</h2>
 <hr />
 <table class="table table-striped table-hover">
-   <tr>
-       <th>
-           Username
-       </th>
-       <th>
-           Desired Role
-       </th>
-       <th>
-           Approve Role
-       </th>
-   </tr>
-    @foreach (var user in Model)
-    {
+    
         <tr>
-            <td>
-                @user.UserName
-            </td>
-            <td>
-                @user.RoleToAdd
-            </td>
-            <td>
-                @Html.ActionLink("Approve", "ApproveRole", "Home", new { id = user.Id } , new {@class = "btn btn-success btn-xs"})
-            </td>
+            <th>
+                Username
+            </th>
+            <th>
+                Desired Role
+            </th>
+            <th>
+                Approve Role
+            </th>
         </tr>
-    }
+        @foreach (var user in Model)
+        {
+            <tr>
+                <td>
+                    @user.UserName
+                </td>
+                <td>
+                    @user.RoleToAdd
+                </td>
+                <td>
+                    @Html.ActionLink("Approve", "ApproveRole", "Home", new { id = user.Id }, new { @class = "btn btn-success btn-xs" })
+                </td>
+            </tr>
+        }
+   
 </table>

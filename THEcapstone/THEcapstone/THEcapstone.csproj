@@ -197,6 +197,7 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\CustomerController.cs" />
+    <Compile Include="Controllers\DogWalkerController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\VeterinarianController.cs" />
@@ -247,13 +248,57 @@
     <Compile Include="Migrations\201801251738144_huh.Designer.cs">
       <DependentUpon>201801251738144_huh.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201801260217035_come on.cs" />
+    <Compile Include="Migrations\201801260217035_come on.Designer.cs">
+      <DependentUpon>201801260217035_come on.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201801260233407_update.cs" />
+    <Compile Include="Migrations\201801260233407_update.Designer.cs">
+      <DependentUpon>201801260233407_update.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201801261616086_more tables...yay....cs" />
+    <Compile Include="Migrations\201801261616086_more tables...yay....Designer.cs">
+      <DependentUpon>201801261616086_more tables...yay....cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201801270057292_for the lols.cs" />
+    <Compile Include="Migrations\201801270057292_for the lols.Designer.cs">
+      <DependentUpon>201801270057292_for the lols.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201801280308322_added message context.cs" />
+    <Compile Include="Migrations\201801280308322_added message context.Designer.cs">
+      <DependentUpon>201801280308322_added message context.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201801280317512_lol1.cs" />
+    <Compile Include="Migrations\201801280317512_lol1.Designer.cs">
+      <DependentUpon>201801280317512_lol1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201801280705075_changed column name.cs" />
+    <Compile Include="Migrations\201801280705075_changed column name.Designer.cs">
+      <DependentUpon>201801280705075_changed column name.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201801280709408_yay.cs" />
+    <Compile Include="Migrations\201801280709408_yay.Designer.cs">
+      <DependentUpon>201801280709408_yay.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201801290050071_perturbed currently.cs" />
+    <Compile Include="Migrations\201801290050071_perturbed currently.Designer.cs">
+      <DependentUpon>201801290050071_perturbed currently.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201801290051092_please work.cs" />
+    <Compile Include="Migrations\201801290051092_please work.Designer.cs">
+      <DependentUpon>201801290051092_please work.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Addresses.cs" />
     <Compile Include="Models\Customer.cs" />
     <Compile Include="Models\CustomerCreateModel.cs" />
+    <Compile Include="Models\DogWalker.cs" />
+    <Compile Include="Models\DogWalkerCreateModel.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
+    <Compile Include="Models\Message.cs" />
+    <Compile Include="Models\PetSitter.cs" />
     <Compile Include="Models\VetProfile.cs" />
     <Compile Include="Models\States.cs" />
     <Compile Include="Models\VerterinarianCreate.cs" />
@@ -331,6 +376,13 @@
     <Content Include="Views\Veterinarian\ViewProfile.cshtml" />
     <Content Include="Views\Shared\_VeterinarianLayout.cshtml" />
     <Content Include="Views\Veterinarian\CreateProfile.cshtml" />
+    <Content Include="Views\Veterinarian\EditProfile.cshtml" />
+    <Content Include="Views\DogWalker\Create.cshtml" />
+    <Content Include="Views\DogWalker\Index.cshtml" />
+    <Content Include="Views\Veterinarian\Inbox.cshtml" />
+    <Content Include="Views\Veterinarian\ReadMsg.cshtml" />
+    <Content Include="Views\Shared\_CustomerLayout.cshtml" />
+    <Content Include="Views\Customer\Inbox.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -376,6 +428,36 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201801251738144_huh.resx">
       <DependentUpon>201801251738144_huh.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201801260217035_come on.resx">
+      <DependentUpon>201801260217035_come on.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201801260233407_update.resx">
+      <DependentUpon>201801260233407_update.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201801261616086_more tables...yay....resx">
+      <DependentUpon>201801261616086_more tables...yay....cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201801270057292_for the lols.resx">
+      <DependentUpon>201801270057292_for the lols.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201801280308322_added message context.resx">
+      <DependentUpon>201801280308322_added message context.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201801280317512_lol1.resx">
+      <DependentUpon>201801280317512_lol1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201801280705075_changed column name.resx">
+      <DependentUpon>201801280705075_changed column name.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201801280709408_yay.resx">
+      <DependentUpon>201801280709408_yay.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201801290050071_perturbed currently.resx">
+      <DependentUpon>201801290050071_perturbed currently.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201801290051092_please work.resx">
+      <DependentUpon>201801290051092_please work.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

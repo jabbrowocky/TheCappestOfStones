@@ -18,8 +18,10 @@
             }
             else
             {
-                @Html.ActionLink("View Profile", "ViewProfile", "Veterinarian", new { }, new { @class = "list-group-item" })
-                @Html.ActionLink("Edit Profile", "", "", new { }, new { @class = "list-group-item" })
+                @Html.ActionLink("Home", "Index", new { }, new { @class = "list-group-item" });
+                @Html.ActionLink("View Profile", "ViewProfile", "Veterinarian", new { id = Model.Vet.ProfileId }, new { @class = "list-group-item" })
+                @Html.ActionLink("Edit Profile", "EditProfile", "Veterinarian", new { id = Model.Vet.ProfileId }, new { @class = "list-group-item" }) //edit is weird with viewmodel
+                @Html.ActionLink("Inbox", "Inbox", "Veterinarian", new { id = Model.Vet.VetId }, new { @class = "list-group-item" } )                                                                                    
             }
 
         </ul>
@@ -38,56 +40,5 @@
 </div>
 @section scripts{
     
-    @*<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCxzznBe8ybNXYxz0ZOyhRJQbbVGvam75s&callback=initMap"></script>   
-    <script>
-        
-        function checkForMap() {
-             var checkbox = document.getElementById('checkerino');
-             let showPlease = document.getElementById('test');
-             if (checkbox.checked == true) {
-                 showPlease.style.display = 'block';
-             }
-             else if (checkbox.checked != true){
-                 showPlease.style.display = 'none';
-             }
-        }
-        function showMap() {
-            let checkbox = document.getElementById('CheckBox');
-            let map = document.getElementById('map');
-            if (checkbox.checked != true) {
-                map.style.display = 'block';
-            }
-            else if (checkbox.checked == true) {
-                map.style.display = 'none';
-            }
-        }
-        function initMap() {
-
-            let latLng = getLatLong('824 S 111th Pl, Milwaukee, WI')
-            let position = { lat: 43.0389, lng: -87.9065 };
-            var map = new google.maps.Map(document.getElementById('map'), {
-                center: position,
-                zoom: 15
-            });
-            
-        }
-        function createMarker(position, map) {
-            var marker = new google.maps.Marker({ position: position, map: map });
-            return marker;
-        }
-        function getLatLong(geocoder, resultsMap) {
-                
-                
-                geocoder.geocode({ 'address': addressString }, function (results, status) {
-                        if (status == google.maps.GeocoderStatus.OK) {
-
-                        } else {
-                            alert('Geocode was not successful');
-                        }
-                        console.log(result);
-                    });
-        
-        }
-    </script>*@
-    
+   @RenderSection("scriptsy", false)
 }

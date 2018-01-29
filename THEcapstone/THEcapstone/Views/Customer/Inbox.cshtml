@@ -1,0 +1,49 @@
+﻿@model THEcapstone.Models.Customer
+@{
+    ViewBag.Title = "Inbox";
+    Layout = "~/Views/Shared/_CustomerLayout.cshtml";
+}
+
+<h2>Inbox</h2>
+
+@{if (Model.Inbox.Count != 0)
+    {
+        <hr />
+        <div>
+            <table class="table table-hover">
+
+                @foreach (var message in Model.Inbox)
+                {
+                    <tr>
+                        <td>
+                            @if (message.Opened == true)
+                            {
+                                <p>opened</p>
+                            }
+                            else
+                            {
+                                <p>unread</p>
+                            }
+                        </td>
+                        <td>
+                            @message.SentOn
+                        </td>
+                        <td>
+                            @Html.ActionLink("Open", "ReadMsg", "Veterinarian", new { id = message.MsgId }, new { @class = "btn btn-success btn-sm" })
+                            @Html.ActionLink("Delete", "DeleteMsg", "Veterinarian", new { id = message.MsgId }, new { @class = "btn btn-danger btn-sm" })
+                        </td>
+                    </tr>
+
+                }
+            </table>
+        </div>
+    }
+    else
+    {
+        <div class="text-center">
+            <p><i>Your Inbox is empty!</i></p>
+        </div>
+
+    }
+}
+

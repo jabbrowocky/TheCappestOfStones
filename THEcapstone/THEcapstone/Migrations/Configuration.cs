@@ -80,6 +80,10 @@ namespace THEcapstone.Migrations
                 new States { StateName = "Wisconsin" },
                 new States { StateName = "Wyoming" }
                 );
+
+
+            context.Messages.Add(new Message { MsgText = "Hello Lori", SentOn = DateTime.Today, Opened = false, Deleted = false, TargetId = "13b11038-bbed-4a6e-8775-7770c22582d4"});
+            
         }
     }
 }
