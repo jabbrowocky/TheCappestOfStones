@@ -12,6 +12,7 @@ namespace THEcapstone.Models
         public DogWalker Walker { get; set; } = null;
         public PetSitter Sitter { get; set; } = null;
         public Message Msg { get; set; }
+        public string UserType { get; set; }
 
     }
 }

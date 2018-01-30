@@ -19,6 +19,7 @@ namespace THEcapstone.Models
         public int? ProfileId { get; set; } = null;
         public WalkerProfile Profile { get; set; }
         public string FeedbackRating { get; set; }
+        public List<Message> Inbox { get; set; }
         
     }
 }

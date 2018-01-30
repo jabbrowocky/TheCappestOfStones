@@ -66,8 +66,9 @@ namespace THEcapstone.Controllers
             db.SaveChanges();
             return Address;
         }
-        public ActionResult CreateProfile()
+        public ActionResult CreateProfile(int? id)
         {
+
             return View();
         }
     }

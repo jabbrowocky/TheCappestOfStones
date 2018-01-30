@@ -140,6 +140,7 @@ namespace THEcapstone.Controllers
                     model.Msg = new Message();
                     model.Msg.TargetId = model.Vet.UserId;
                     model.Msg.AuthorId = model.Cust.UserId;
+                    model.UserType = "Veterinarian";                    
                     break;
                 default:
                     break;
@@ -151,13 +152,41 @@ namespace THEcapstone.Controllers
         [HttpPost]
         public ActionResult SendMsg(CustomerSendModel model)
         {
+
+            string caseWord = model.UserType;
             Message message = model.Msg;
-            message.TargetId = model.Vet.UserId;
             message.AuthorId = model.Cust.UserId;
-            message.SentOn = DateTime.Today.Date;
+            
+            
+            SendMail mail = new SendMail();
+            
+            switch (caseWord)
+            {
+                case "Veterinarian":
+                    message.TargetId = model.Vet.UserId;
+                    ApplicationUser user = db.Users.Where(u => u.Id == model.Vet.UserId).FirstOrDefault();
+                    mail.SendEmail( user.Email , user.UserName, "A user has sent you a message", message.MsgText, message.MsgText);                   
+                    message.SentOn = DateTime.Today.Date;
+                    break;
+                case "Dog Walker":
+                    message.TargetId = model.Walker.UserId;
+                    ApplicationUser user2 = db.Users.Where(u => u.Id == model.Walker.UserId).FirstOrDefault();
+                    mail.SendEmail(user2.Email, user2.UserName, "A user has sent you a message", message.MsgText, message.MsgText);
+                    message.SentOn = DateTime.Today.Date;
+                    break;
+                case "Pet Sitter":
+                    message.TargetId = model.Sitter.UserId;
+                    ApplicationUser user3 = db.Users.Where(u => u.Id == model.Sitter.UserId).FirstOrDefault();
+                    mail.SendEmail(user3.Email, user3.UserName, "A user has sent you a message", "Message content:" + message.MsgText, message.MsgText);
+                    message.SentOn = DateTime.Today.Date;
+                    break;
+                default:
+                    break;
+            }
+           
             db.Messages.Add(message);
             db.SaveChanges();
-            return RedirectToAction("Index","Customer", model.Cust);
+            return RedirectToAction("Index","Customer");
         }
     }
 }
