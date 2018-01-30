@@ -20,7 +20,7 @@
             {
                 @Html.ActionLink("Home", "Index", new { }, new { @class = "list-group-item" });
                 @Html.ActionLink("View Profile", "ViewProfile", "Veterinarian", new { id = Model.Vet.ProfileId }, new { @class = "list-group-item" })
-                @Html.ActionLink("Edit Profile", "EditProfile", "Veterinarian", new { id = Model.Vet.ProfileId }, new { @class = "list-group-item" }) //edit is weird with viewmodel
+                @*@Html.ActionLink("Edit Profile", "EditProfile", "Veterinarian", new { id = Model.Vet.ProfileId }, new { @class = "list-group-item" }) //edit is weird with viewmodel*@
                 @Html.ActionLink("Inbox", "Inbox", "Veterinarian", new { id = Model.Vet.VetId }, new { @class = "list-group-item" } )                                                                                    
             }
 

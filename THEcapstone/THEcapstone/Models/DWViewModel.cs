@@ -9,6 +9,7 @@ namespace THEcapstone.Models
     {
         public WalkerProfile WalkerProf { get; set; }
         public DogWalker Walker { get; set; }
+        public Message Msg { get; set; }
         
     }
 }

@@ -10,11 +10,25 @@
 {
     <div class="row">
         <div class="form-group col-md-offset-1">
+            @if (Model.Vet != null)
+            {
             <h4>To: @Model.Vet.VetName</h4>
+            }
+            else if (Model.Walker != null)
+            {
+                <h4>To: @Model.Walker.WalkerFirstName @Model.Walker.WalkerLastName</h4>
+            }
+            else if (Model.Sitter != null)
+            {
+                <h4>To: @Model.Sitter.SitterFirstName @Model.Sitter.SitterLastName</h4>
+            }
+
             @Html.HiddenFor(u => u.Vet.UserId)
             @Html.HiddenFor(u => u.Cust.UserId)
             @Html.HiddenFor(u => u.UserType)
-            
+            @Html.HiddenFor(u => u.Walker.UserId)
+            @Html.HiddenFor(u => u.Sitter.UserId)
+           
         </div>
     </div>
     <br />

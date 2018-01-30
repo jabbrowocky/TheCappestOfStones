@@ -141,23 +141,23 @@ namespace THEcapstone.Controllers
 
             return View(model);
         }
-        public ActionResult EditProfile(int? id)
-        {
-            var userId = User.Identity.GetUserId();
-            VetProfileViewModel model = new VetProfileViewModel();
-            VetProfile prof = db.VetProfiles.Find(id);
-            Veterinarian vet = db.Veterinarians.Where(v => v.UserId == userId).FirstOrDefault() ;
-            model.VetProfile = prof;
-            model.Vet = vet;
+        //public ActionResult EditProfile(int? id)
+        //{
+        //    var userId = User.Identity.GetUserId();
+        //    VetProfileViewModel model = new VetProfileViewModel();
+        //    VetProfile prof = db.VetProfiles.Find(id);
+        //    Veterinarian vet = db.Veterinarians.Where(v => v.UserId == userId).FirstOrDefault() ;
+        //    model.VetProfile = prof;
+        //    model.Vet = vet;
 
-            return View(model);
-        }
-        [HttpPost]
-        public ActionResult EditProfile(VetProfileViewModel elModel)
-        {
+        //    return View(model);
+        //}
+        //[HttpPost]
+        //public ActionResult EditProfile(VetProfileViewModel elModel)
+        //{
 
-            return View();
-        }
+        //    return View();
+        //}
         public ActionResult Inbox(int? id)
         {
             

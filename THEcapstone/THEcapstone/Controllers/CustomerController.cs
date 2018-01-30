@@ -124,9 +124,14 @@ namespace THEcapstone.Controllers
             return View(model);
            
         }
-        public ActionResult ViewSitterProfile(int? id)
+        public ActionResult ViewWalkerProfile(int? id)
         {
-            return View();
+            var userId = User.Identity.GetUserId();
+            ViewProfileModel model = new ViewProfileModel();
+            model.Cust = db.Customers.Where(u => u.UserId == userId).FirstOrDefault();
+            var dw = db.DogWalkers.Where(w => w.WalkerId == id).FirstOrDefault();
+            model.WalkerProf = db.WalkerProfiles.Where(p => p.Id == dw.ProfileId).FirstOrDefault();
+            return View(model);
         }
         public ActionResult SendMsg(int? id, string name)
         {
@@ -141,6 +146,13 @@ namespace THEcapstone.Controllers
                     model.Msg.TargetId = model.Vet.UserId;
                     model.Msg.AuthorId = model.Cust.UserId;
                     model.UserType = "Veterinarian";                    
+                    break;
+                case "Dog Walker":
+                    model.Walker = db.DogWalkers.Where(d => d.ProfileId == id).FirstOrDefault();
+                    model.Msg = new Message();
+                    model.Msg.TargetId = model.Walker.UserId;
+                    model.Msg.AuthorId = model.Cust.UserId;
+                    model.UserType = "Dog Walker";
                     break;
                 default:
                     break;
@@ -165,19 +177,19 @@ namespace THEcapstone.Controllers
                 case "Veterinarian":
                     message.TargetId = model.Vet.UserId;
                     ApplicationUser user = db.Users.Where(u => u.Id == model.Vet.UserId).FirstOrDefault();
-                    mail.SendEmail( user.Email , user.UserName, "A user has sent you a message", message.MsgText, message.MsgText);                   
+                    mail.SendEmail( user.Email , "Pet City", "A user has sent you a message", message.MsgText, message.MsgText);                   
                     message.SentOn = DateTime.Today.Date;
                     break;
                 case "Dog Walker":
                     message.TargetId = model.Walker.UserId;
                     ApplicationUser user2 = db.Users.Where(u => u.Id == model.Walker.UserId).FirstOrDefault();
-                    mail.SendEmail(user2.Email, user2.UserName, "A user has sent you a message", message.MsgText, message.MsgText);
+                    mail.SendEmail(user2.Email, "Pet City", "A user has sent you a message", message.MsgText, message.MsgText);
                     message.SentOn = DateTime.Today.Date;
                     break;
                 case "Pet Sitter":
                     message.TargetId = model.Sitter.UserId;
                     ApplicationUser user3 = db.Users.Where(u => u.Id == model.Sitter.UserId).FirstOrDefault();
-                    mail.SendEmail(user3.Email, user3.UserName, "A user has sent you a message", "Message content:" + message.MsgText, message.MsgText);
+                    mail.SendEmail(user3.Email, "Pet City", "A user has sent you a message", "Message content:" + message.MsgText, message.MsgText);
                     message.SentOn = DateTime.Today.Date;
                     break;
                 default:

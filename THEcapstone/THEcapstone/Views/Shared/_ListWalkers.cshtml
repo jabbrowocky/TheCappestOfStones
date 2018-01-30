@@ -12,7 +12,7 @@
                     @walker.WalkerFirstName
                 </td>
                 <td>
-                    @Html.ActionLink("View Profile", "", "")
+                    @Html.ActionLink("View Profile", "ViewWalkerProfile", new { id = walker.WalkerId} )
                 </td>
             </tr>
         }

@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.Mvc;
 using Microsoft.AspNet.Identity;
 using THEcapstone.Models;
+using System.Data.Entity;
 
 namespace THEcapstone.Controllers
 {
@@ -112,6 +113,47 @@ namespace THEcapstone.Controllers
             model.Walker = db.DogWalkers.Where(d => d.UserId == userId).FirstOrDefault();
             model.WalkerProf = db.WalkerProfiles.Where( u => u.Id == id).FirstOrDefault();
             return View(model);
+        }
+        public ActionResult Inbox(int? id)
+        {
+
+            //VetProfileViewModel model = new VetProfileViewModel();
+            //model.Vet = db.Veterinarians.Where(m => m.VetId == id).FirstOrDefault();
+            //model.VetProfile = db.VetProfiles.Where(u => u.ProfileId == model.Vet.ProfileId).FirstOrDefault();
+            //model.Vet.Inbox = db.Messages.Where(e => e.TargetId == model.Vet.UserId).ToList();
+            //model.Vet.Inbox = model.Vet.Inbox.Where(d => d.Deleted == false).ToList();
+            //return View(model);
+            DWViewModel model = new DWViewModel();
+            model.Walker = db.DogWalkers.Where(m => m.WalkerId == id).FirstOrDefault();
+            model.Walker.Inbox = db.Messages.Where(e => e.TargetId == model.Walker.UserId).ToList();
+            model.Walker.Inbox = model.Walker.Inbox.Where(d => d.Deleted == false).ToList();
+            return View(model);
+        }
+        public ActionResult ReadMsg(int? id)
+        {
+            var userId = User.Identity.GetUserId();
+            DWViewModel model = new DWViewModel();
+            model.Msg = db.Messages.Find(id);
+            model.Msg.Opened = true;
+            db.Entry(model.Msg).State = EntityState.Modified;
+            db.SaveChanges();
+            model.Walker = db.DogWalkers.Where(u => u.UserId == userId).FirstOrDefault();
+            model.WalkerProf = db.WalkerProfiles.Where(p => p.Id == model.Walker.ProfileId).FirstOrDefault();
+
+
+            return View(model);
+        }
+        public ActionResult DeleteMsg(int? id)
+        {
+            var userId = User.Identity.GetUserId();
+            DWViewModel model = new DWViewModel();
+            model.Walker = db.DogWalkers.Where(u => u.UserId == userId).FirstOrDefault();
+            model.WalkerProf = db.WalkerProfiles.Where(u => u.Id == model.Walker.ProfileId).FirstOrDefault();
+            Message msg = db.Messages.Find(id);
+            msg.Deleted = true;
+            db.Entry(msg).State = EntityState.Modified;
+            db.SaveChanges();
+            return RedirectToAction("Inbox", new { id = model.Walker.WalkerId });
         }
     }
 

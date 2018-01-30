@@ -1,19 +1,21 @@
-﻿@model THEcapstone.Models.VetProfileViewModel
-@{
+﻿@model THEcapstone.Models.DWViewModel
+
+@{ 
+
     ViewBag.Title = "Inbox";
-    Layout = "~/Views/Shared/_VeterinarianLayout.cshtml";
+    Layout = "~/Views/Shared/_WalkerLayout.cshtml";
 }
 
 
 <h2>Inbox</h2>
 
-@{if (Model.Vet.Inbox.Count != 0)
+@{if (Model.Walker.Inbox.Count != 0)
 {
     <hr />
     <div>
         <table class="table table-hover">      
         
-            @foreach (var message in Model.Vet.Inbox)
+            @foreach (var message in Model.Walker.Inbox)
             {
                 <tr>
                     <td>
@@ -30,8 +32,8 @@
                         @message.SentOn
                     </td>
                     <td>
-                        @Html.ActionLink("Open", "ReadMsg", "Veterinarian", new { id = message.MsgId }, new { @class = "btn btn-success btn-sm" })
-                        @Html.ActionLink("Delete", "DeleteMsg", "Veterinarian", new { id = message.MsgId }, new { @class = "btn btn-danger btn-sm" })
+                        @Html.ActionLink("Open", "ReadMsg", new { id = message.MsgId }, new { @class = "btn btn-success btn-sm" })
+                        @Html.ActionLink("Delete", "DeleteMsg",  new { id = message.MsgId }, new { @class = "btn btn-danger btn-sm" })
                     </td>
                 </tr>
 

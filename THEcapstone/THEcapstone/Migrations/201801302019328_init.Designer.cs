@@ -7,13 +7,13 @@ namespace THEcapstone.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.1.3-40302")]
-    public sealed partial class addedratingcolumn : IMigrationMetadata
+    public sealed partial class init : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(addedratingcolumn));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(init));
         
         string IMigrationMetadata.Id
         {
-            get { return "201801292039503_added rating column"; }
+            get { return "201801302019328_init"; }
         }
         
         string IMigrationMetadata.Source

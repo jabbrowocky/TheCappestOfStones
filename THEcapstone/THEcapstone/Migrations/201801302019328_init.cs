@@ -58,14 +58,17 @@ namespace THEcapstone.Migrations
                         Opened = c.Boolean(nullable: false),
                         Deleted = c.Boolean(nullable: false),
                         Customer_CustId = c.Int(),
+                        DogWalker_WalkerId = c.Int(),
                         Veterinarian_VetId = c.Int(),
                     })
                 .PrimaryKey(t => t.MsgId)
                 .ForeignKey("dbo.AspNetUsers", t => t.TargetId)
                 .ForeignKey("dbo.Customers", t => t.Customer_CustId)
+                .ForeignKey("dbo.DogWalkers", t => t.DogWalker_WalkerId)
                 .ForeignKey("dbo.Veterinarians", t => t.Veterinarian_VetId)
                 .Index(t => t.TargetId)
                 .Index(t => t.Customer_CustId)
+                .Index(t => t.DogWalker_WalkerId)
                 .Index(t => t.Veterinarian_VetId);
             
             CreateTable(
@@ -136,12 +139,28 @@ namespace THEcapstone.Migrations
                         WalkerLastName = c.String(),
                         AddressId = c.Int(nullable: false),
                         UserId = c.String(maxLength: 128),
+                        ProfileId = c.Int(),
+                        FeedbackRating = c.String(),
                     })
                 .PrimaryKey(t => t.WalkerId)
                 .ForeignKey("dbo.Addresses", t => t.AddressId, cascadeDelete: true)
+                .ForeignKey("dbo.WalkerProfiles", t => t.ProfileId)
                 .ForeignKey("dbo.AspNetUsers", t => t.UserId)
                 .Index(t => t.AddressId)
-                .Index(t => t.UserId);
+                .Index(t => t.UserId)
+                .Index(t => t.ProfileId);
+            
+            CreateTable(
+                "dbo.WalkerProfiles",
+                c => new
+                    {
+                        Id = c.Int(nullable: false, identity: true),
+                        WalkerFirstName = c.String(),
+                        WalkerLastName = c.String(),
+                        UserDiscription = c.String(),
+                        DogTypePreference = c.String(),
+                    })
+                .PrimaryKey(t => t.Id);
             
             CreateTable(
                 "dbo.PetSitters",
@@ -151,10 +170,14 @@ namespace THEcapstone.Migrations
                         SitterFirstName = c.String(),
                         SitterLastName = c.String(),
                         AddressId = c.Int(nullable: false),
+                        UserId = c.String(maxLength: 128),
+                        FeedbackRating = c.Int(nullable: false),
                     })
                 .PrimaryKey(t => t.SitterId)
                 .ForeignKey("dbo.Addresses", t => t.AddressId, cascadeDelete: true)
-                .Index(t => t.AddressId);
+                .ForeignKey("dbo.AspNetUsers", t => t.UserId)
+                .Index(t => t.AddressId)
+                .Index(t => t.UserId);
             
             CreateTable(
                 "dbo.AspNetRoles",
@@ -175,6 +198,7 @@ namespace THEcapstone.Migrations
                         AddressId = c.Int(nullable: false),
                         ProfileId = c.Int(),
                         UserId = c.String(maxLength: 128),
+                        FeedbackRating = c.Int(nullable: false),
                     })
                 .PrimaryKey(t => t.VetId)
                 .ForeignKey("dbo.Addresses", t => t.AddressId, cascadeDelete: true)
@@ -208,8 +232,11 @@ namespace THEcapstone.Migrations
             DropForeignKey("dbo.Messages", "Veterinarian_VetId", "dbo.Veterinarians");
             DropForeignKey("dbo.Veterinarians", "AddressId", "dbo.Addresses");
             DropForeignKey("dbo.AspNetUserRoles", "RoleId", "dbo.AspNetRoles");
+            DropForeignKey("dbo.PetSitters", "UserId", "dbo.AspNetUsers");
             DropForeignKey("dbo.PetSitters", "AddressId", "dbo.Addresses");
             DropForeignKey("dbo.DogWalkers", "UserId", "dbo.AspNetUsers");
+            DropForeignKey("dbo.DogWalkers", "ProfileId", "dbo.WalkerProfiles");
+            DropForeignKey("dbo.Messages", "DogWalker_WalkerId", "dbo.DogWalkers");
             DropForeignKey("dbo.DogWalkers", "AddressId", "dbo.Addresses");
             DropForeignKey("dbo.Customers", "UserId", "dbo.AspNetUsers");
             DropForeignKey("dbo.Messages", "Customer_CustId", "dbo.Customers");
@@ -223,7 +250,9 @@ namespace THEcapstone.Migrations
             DropIndex("dbo.Veterinarians", new[] { "ProfileId" });
             DropIndex("dbo.Veterinarians", new[] { "AddressId" });
             DropIndex("dbo.AspNetRoles", "RoleNameIndex");
+            DropIndex("dbo.PetSitters", new[] { "UserId" });
             DropIndex("dbo.PetSitters", new[] { "AddressId" });
+            DropIndex("dbo.DogWalkers", new[] { "ProfileId" });
             DropIndex("dbo.DogWalkers", new[] { "UserId" });
             DropIndex("dbo.DogWalkers", new[] { "AddressId" });
             DropIndex("dbo.AspNetUserRoles", new[] { "RoleId" });
@@ -232,6 +261,7 @@ namespace THEcapstone.Migrations
             DropIndex("dbo.AspNetUserClaims", new[] { "UserId" });
             DropIndex("dbo.AspNetUsers", "UserNameIndex");
             DropIndex("dbo.Messages", new[] { "Veterinarian_VetId" });
+            DropIndex("dbo.Messages", new[] { "DogWalker_WalkerId" });
             DropIndex("dbo.Messages", new[] { "Customer_CustId" });
             DropIndex("dbo.Messages", new[] { "TargetId" });
             DropIndex("dbo.Customers", new[] { "UserId" });
@@ -241,6 +271,7 @@ namespace THEcapstone.Migrations
             DropTable("dbo.Veterinarians");
             DropTable("dbo.AspNetRoles");
             DropTable("dbo.PetSitters");
+            DropTable("dbo.WalkerProfiles");
             DropTable("dbo.DogWalkers");
             DropTable("dbo.AspNetUserRoles");
             DropTable("dbo.AspNetUserLogins");
