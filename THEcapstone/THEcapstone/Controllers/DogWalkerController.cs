@@ -68,8 +68,41 @@ namespace THEcapstone.Controllers
         }
         public ActionResult CreateProfile(int? id)
         {
+            if (User.Identity.IsAuthenticated)
+            {
+                DWViewModel vM = new DWViewModel();
+                DogWalker walkerModel = db.DogWalkers.Where(u => u.WalkerId == id).FirstOrDefault();
+                vM.Walker = walkerModel;
+                return View(vM);
+            }
+            return RedirectToAction("Index", "Home");
 
-            return View();
+        }
+        [HttpPost]
+        public ActionResult CreateProfile(DWViewModel vModel)
+        {
+            var userId = User.Identity.GetUserId();
+            WalkerProfile profile = new WalkerProfile();
+            if (ModelState.IsValid)
+            {
+                profile.UserDiscription = vModel.WalkerProf.UserDiscription;
+                profile.WalkerFirstName = vModel.WalkerProf.WalkerFirstName;
+                profile.WalkerLastName = vModel.WalkerProf.WalkerLastName;
+                profile.DogTypePreference = vModel.WalkerProf.DogTypePreference;                
+                db.WalkerProfiles.Add(profile);
+                db.SaveChanges();
+                AddProfileToWalker(profile);
+            }
+
+            return RedirectToAction("Index", "DogWalker");
+        }
+        private void AddProfileToWalker(WalkerProfile model)
+        {
+            DogWalker addTo = new DogWalker();
+            var userId = User.Identity.GetUserId();
+            addTo = db.DogWalkers.Where(u => u.UserId == userId).FirstOrDefault();
+            addTo.ProfileId = model.Id;
+            db.SaveChanges();
         }
     }
 

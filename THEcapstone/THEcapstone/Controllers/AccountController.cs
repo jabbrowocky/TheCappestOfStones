@@ -154,7 +154,7 @@ namespace THEcapstone.Controllers
         {
             if (ModelState.IsValid)
             {
-                var user = new ApplicationUser { UserName = model.UserName, Email = model.Email, RoleToAdd = model.RoleIdentifier };
+                var user = new ApplicationUser { UserName = model.UserName, Email = model.Email, RoleToAdd = model.UserRoles };
                 var result = await UserManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
                 {
@@ -165,13 +165,15 @@ namespace THEcapstone.Controllers
                     // string code = await UserManager.GenerateEmailConfirmationTokenAsync(user.Id);
                     // var callbackUrl = Url.Action("ConfirmEmail", "Account", new { userId = user.Id, code = code }, protocol: Request.Url.Scheme);
                     // await UserManager.SendEmailAsync(user.Id, "Confirm your account", "Please confirm your account by clicking <a href=\"" + callbackUrl + "\">here</a>");
-                    if (model.RoleIdentifier == "Customer")
+                    if (model.UserRoles == "Customer")
                     {
-                        await this.UserManager.AddToRolesAsync(user.Id, model.RoleIdentifier);
+                        await this.UserManager.AddToRolesAsync(user.Id, model.UserRoles);
                         return RedirectToAction("Index", "Customer");
                     }
                     return RedirectToAction("Index", "Home");
                 }
+                ViewBag.Name = new SelectList(db.Roles.Where(u => !u.Name.Contains("Admin"))
+                                          .ToList(), "Name", "Name");
                 AddErrors(result);
             }
 

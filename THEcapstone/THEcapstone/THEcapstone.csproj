@@ -234,6 +234,10 @@
     <Compile Include="Migrations\201801300159058_wewt.Designer.cs">
       <DependentUpon>201801300159058_wewt.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201801301748117_please fix.cs" />
+    <Compile Include="Migrations\201801301748117_please fix.Designer.cs">
+      <DependentUpon>201801301748117_please fix.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Addresses.cs" />
@@ -376,6 +380,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201801300159058_wewt.resx">
       <DependentUpon>201801300159058_wewt.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201801301748117_please fix.resx">
+      <DependentUpon>201801301748117_please fix.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

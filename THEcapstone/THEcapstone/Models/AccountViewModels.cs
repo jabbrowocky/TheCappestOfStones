@@ -86,7 +86,7 @@ namespace THEcapstone.Models
 
         [Required]
         [Display(Name = "What type of user are you?")]
-        public string RoleIdentifier { get; set; }
+        public string UserRoles { get; set; }
     }
 
     public class ResetPasswordViewModel
