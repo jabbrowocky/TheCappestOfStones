@@ -1,4 +1,4 @@
-﻿@model THEcapstone.Models.DogWalker
+﻿@model THEcapstone.Models.DWViewModel
 @{
     ViewBag.Title = "Dog Walker Home";
     Layout = "~/Views/Shared/_Layout.cshtml";
@@ -10,17 +10,17 @@
     <div class="col-md-2">
         <ul class="list-group">
 
-            @if (Model.ProfileId == null)
+            @if (Model.Walker.ProfileId == null)
             {
 
-                @Html.ActionLink("Create Profile", "CreateProfile", "DogWalker", new { id = Model.WalkerId }, new { @class = "list-group-item" })
+                @Html.ActionLink("Create Profile", "CreateProfile", "DogWalker", new { id = Model.Walker.WalkerId }, new { @class = "list-group-item" })
             }
             else
             {
                 @Html.ActionLink("Home", "Index", new { }, new { @class = "list-group-item" });
-                @Html.ActionLink("View Profile", "ViewProfile",  new { id = Model.ProfileId }, new { @class = "list-group-item" })
-                @Html.ActionLink("Edit Profile", "EditProfile",  new { id = Model.ProfileId }, new { @class = "list-group-item" }) //edit is weird with viewmodel
-                @Html.ActionLink("Inbox", "Inbox",  new { id = Model.WalkerId}, new { @class = "list-group-item" })
+                @Html.ActionLink("View Profile", "ViewProfile",  new { id = Model.Walker.ProfileId }, new { @class = "list-group-item" })
+                @Html.ActionLink("Edit Profile", "EditProfile",  new { id = Model.Walker.ProfileId }, new { @class = "list-group-item" }) //edit is weird with viewmodel
+                @Html.ActionLink("Inbox", "Inbox",  new { id = Model.Walker.WalkerId}, new { @class = "list-group-item" })
             }
 
         </ul>

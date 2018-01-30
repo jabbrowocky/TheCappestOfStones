@@ -350,6 +350,8 @@
     <Content Include="Views\Customer\SendMsg.cshtml" />
     <Content Include="Views\Shared\_WalkerLayout.cshtml" />
     <Content Include="Views\DogWalker\CreateProfile.cshtml" />
+    <Content Include="Views\DogWalker\ViewProfile.cshtml" />
+    <Content Include="Views\DogWalker\Inbox.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

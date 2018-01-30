@@ -22,8 +22,9 @@ namespace THEcapstone.Controllers
                 
                 return RedirectToAction("Create", "DogWalker");
             }
-            DogWalker walker = dawgWalker;
-            return View(walker);
+            DWViewModel model = new DWViewModel();
+            model.Walker = dawgWalker;
+            return View(model);
         }
         [HttpGet]
         public ActionResult Create()
@@ -103,6 +104,14 @@ namespace THEcapstone.Controllers
             addTo = db.DogWalkers.Where(u => u.UserId == userId).FirstOrDefault();
             addTo.ProfileId = model.Id;
             db.SaveChanges();
+        }
+        public ActionResult ViewProfile(int? id)
+        {
+            var userId = User.Identity.GetUserId();
+            DWViewModel model = new DWViewModel();
+            model.Walker = db.DogWalkers.Where(d => d.UserId == userId).FirstOrDefault();
+            model.WalkerProf = db.WalkerProfiles.Where( u => u.Id == id).FirstOrDefault();
+            return View(model);
         }
     }
 
