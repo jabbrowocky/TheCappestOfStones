@@ -1,14 +1,14 @@
-﻿@model THEcapstone.Models.ViewProfileModel
+﻿@model THEcapstone.Models.PSViewModel
 @{
-    ViewBag.Title = "ViewSitterProfile";
-    Layout = "~/Views/Shared/_CustomerLayout.cshtml";
+    ViewBag.Title = "Profile";
+    Layout = "~/Views/Shared/_SitterLayout.cshtml";
 }
-
 
 <h2>Profile</h2>
 <hr />
 <br />
 <h4>Name: @Model.SitterProf.SitterFirstName  @Model.SitterProf.SitterLastName</h4>
+<h4>Location: @Model.SitterProf.CityName</h4>
 <br />
 <div class="row">
     <div class="col-md-12">
@@ -28,7 +28,7 @@
     <div class="col-lg-6">
         <div class="panel panel-default">
             <div class="panel-heading">
-                <h3 class="panel-title">Experience:</h3>
+                <h3 class="panel-title">Experience</h3>
             </div>
             <div class="panel-body">
 
@@ -39,6 +39,7 @@
     </div>
 
 </div>
-@Html.ActionLink("Send Message", "SendMsg", new { id = Model.SitterProf.Id, name = "Pet Sitter" }, new { @class = "btn btn-primary" })
+
+
 
 

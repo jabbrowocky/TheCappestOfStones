@@ -1,7 +1,7 @@
-﻿@model THEcapstone.Models.CustInboxViewModel
+﻿@model THEcapstone.Models.PSViewModel
 @{
     ViewBag.Title = "ReadMsg";
-    Layout = "~/Views/Shared/_CustomerLayout.cshtml";
+    Layout = "~/Views/Shared/_SitterLayout.cshtml";
 }
 
 
@@ -20,8 +20,8 @@
         </div>
         <div class="row">
             <div class="col-md-offset-10">
-                @Html.ActionLink("Delete", "DeleteMsg",  new { id = Model.Msg.MsgId }, new { @class = "btn btn-danger btn-sm" })
-                @Html.ActionLink("Inbox", "Inbox",  new { id = Model.Cust.CustId }, new { @class = "btn btn-primary btn-sm" })
+                @Html.ActionLink("Delete", "DeleteMsg", new { id = Model.Msg.MsgId }, new { @class = "btn btn-danger btn-sm" })
+                @Html.ActionLink("Inbox", "Inbox", new { id = Model.Sitter.SitterId }, new { @class = "btn btn-primary btn-sm" })
             </div>
         </div>
     </div>

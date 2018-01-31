@@ -16,6 +16,9 @@ namespace THEcapstone.Models
         public Addresses Address { get; set; }
         public string UserId { get; set; }
         public virtual ApplicationUser User { get; set; }
+        public int? ProfileId { get; set; }
+        public PetSitterProfile Profile { get; set; }
         public int FeedbackRating { get; set; }
+        public List<Message> Inbox { get; set; }
     }
 }

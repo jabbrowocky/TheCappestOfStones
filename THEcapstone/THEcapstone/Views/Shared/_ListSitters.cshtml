@@ -13,7 +13,7 @@
                     @sitter.SitterFirstName
                 </td>
                 <td>
-                    @Html.ActionLink("View Profile", "", "")
+                    @Html.ActionLink("View Profile", "ViewSitterProfile", new { id = sitter.SitterId })
                 </td>
             </tr>
         }

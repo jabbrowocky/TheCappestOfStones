@@ -1,8 +1,8 @@
 ﻿@{
-    ViewBag.Title = "Home Page";
+    ViewBag.Title = "Pet City - Main";
 }
 
-<div class="jumbotron" style="background-color: forestgreen">
+<div class="jumbotron" style = "background-image:url(/DoggyWoofWoof.jpg)">
     @if (User.IsInRole("Admin"))
     {
         <h1 class="text-center">Hello god</h1>
@@ -10,13 +10,25 @@
 }
 else
 {
-   <div class="text-center">
-       <h1>Pet City</h1>
+   <div class="text-primary text-left">
+       <div class="row">
+           <h1 style="font-family: 'Comic Sans MS'">Pet City</h1>
+       </div>
        <br />
        <br />
-       <br />
-       <h3> Get Started Now!</h3>
-       @Html.ActionLink("Register","Register", "Account", new { }, new { @class = "btn btn-primary btn-lg"})
+       <div class="row">
+           <h3> Get Started Now!</h3>
+       </div>
+       <div class="row">
+                @Html.ActionLink("Register","Register", "Account", new { }, new { @class = "btn btn-primary btn-lg"})
+       
+       </div>
+       <div class="row">
+            <h4><i>Already a member?</i></h4>
+       </div>
+       <div class="row">
+                @Html.ActionLink("Sign In", "Login", "Account", new { }, new { @class = "btn btn-success btn-sm" })
+       </div>
    </div> 
     }
 </div>

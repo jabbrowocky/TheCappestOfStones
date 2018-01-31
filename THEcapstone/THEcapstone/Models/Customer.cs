@@ -19,6 +19,7 @@ namespace THEcapstone.Models
         [ForeignKey("UserId")]
         public virtual ApplicationUser User { get; set; }
         public List<Message> Inbox { get; set; }
+        public bool IsSubscribed { get; set; } = false;
         
     }
 }

@@ -1,0 +1,44 @@
+﻿@model THEcapstone.Models.PSViewModel
+@{
+    ViewBag.Title = "Pet Sitter";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Sitter Home</h2>
+
+<hr />
+<div class="row">
+    <div class="col-md-2">
+        <ul class="list-group">
+
+            @if (Model.Sitter.ProfileId == null)
+            {
+
+                @Html.ActionLink("Create Profile", "CreateProfile", new { id = Model.Sitter.SitterId }, new { @class = "list-group-item" })
+            }
+            else
+            {
+                @Html.ActionLink("Home", "Index", new { }, new { @class = "list-group-item" });
+                @Html.ActionLink("View Profile", "ViewProfile", new { id = Model.Sitter.ProfileId }, new { @class = "list-group-item" })
+                @*@Html.ActionLink("Edit Profile", "EditProfile", "Veterinarian", new { id = Model.Vet.ProfileId }, new { @class = "list-group-item" }) //edit is weird with viewmodel*@
+                @Html.ActionLink("Inbox", "Inbox",  new { id = Model.Sitter.SitterId }, new { @class = "list-group-item" })
+            }
+
+        </ul>
+    </div>
+    <div class="col-md-10">
+        <div class="panel panel-default">
+
+            <div class="panel-body">
+
+                @RenderBody()
+
+            </div>
+
+        </div>
+    </div>
+</div>
+@section scripts{
+
+    @RenderSection("scriptsy", false)
+}

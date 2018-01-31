@@ -1,0 +1,68 @@
+﻿@model THEcapstone.Models.PSViewModel
+@{
+    ViewBag.Title = "CreateProfile";
+    Layout = "~/Views/Shared/_SitterLayout.cshtml";
+}
+
+<h2>Create Your Sitter Profile!</h2>
+
+
+
+@using (Html.BeginForm())
+{
+    <div class="row">
+        <div class="form-group col-md-offset-1">
+            @Html.LabelFor(model => model.SitterProf.SitterFirstName, new { @class = "col-md-2 control-label" })
+            <div class="col-md-10">
+                @Html.TextBoxFor(m => m.SitterProf.SitterFirstName, new { @class = "form-control" })
+            </div>
+        </div>
+    </div>
+    <br />
+        <div class="row">
+            <div class="form-group col-md-offset-1">
+                @Html.LabelFor(model => model.SitterProf.SitterLastName, new { @class = "col-md-2 control-label" })
+                <div class="col-md-10">
+                    @Html.TextBoxFor(m => m.SitterProf.SitterLastName, new { @class = "form-control" })
+                </div>
+            </div>
+        </div>
+        <br />
+        <div class="row">
+            <div class="form-group col-md-offset-1">
+                @Html.LabelFor(model => model.SitterProf.CityName, new { @class = "col-md-2 control-label" })
+                <div class="col-md-10">
+                    @Html.TextBoxFor(m => m.SitterProf.CityName, new { @class = "form-control" })
+                </div>
+            </div>
+        </div>
+        <br />
+        <div class="row">
+            <div class="form-group col-md-offset-1">
+                @Html.LabelFor(model => model.SitterProf.BriefDescription, new { @class = "col-md-2 control-label" })
+                <div class="col-md-10">
+                    @Html.TextAreaFor(m => m.SitterProf.BriefDescription, 5, 12, new { @class = "form-control" })
+                </div>
+            </div>
+        </div>
+        <br />
+
+        <div class="row">
+            <div class="form-group col-md-offset-1">
+                @Html.LabelFor(model => model.SitterProf.ExperienceDescription, new { @class = "col-md-2 control-label" })
+                <div class="col-md-10">
+                    @Html.TextAreaFor(m => m.SitterProf.ExperienceDescription, 5, 12, new { @class = "form-control" })
+                </div>
+            </div>
+        </div>
+        <br />
+        
+
+        <div class="row">
+            <div class="form-group">
+                <div class="col-md-offset-5 col-md-10">
+                    <input type="submit" value="Create" class="btn btn-success btn-lg" />
+                </div>
+            </div>
+        </div>
+}

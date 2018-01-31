@@ -44,6 +44,15 @@
                 </div>
             </div>
         </div>
+        <br />
+        <div class="row">
+            <div class="form-group col-md-offset-1">
+                @Html.LabelFor(model => model.WalkerProf.CityName, new { @class = "col-md-2 control-label" })
+                <div class="col-md-10">
+                    @Html.TextAreaFor(m => m.WalkerProf.CityName, 5, 12, new { @class = "form-control" })
+                </div>
+            </div>
+        </div>
         <br />   
         
         <div class="row">

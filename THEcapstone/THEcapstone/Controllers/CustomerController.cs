@@ -124,6 +124,16 @@ namespace THEcapstone.Controllers
             return View(model);
            
         }
+        public ActionResult ViewSitterProfile(int? id)
+        {
+            var userId = User.Identity.GetUserId();
+            ViewProfileModel model = new ViewProfileModel();
+            model.Cust = db.Customers.Where(u => u.UserId == userId).FirstOrDefault();
+            var petsit = db.PetSitters.Where(p => p.SitterId == id).FirstOrDefault();
+            model.SitterProf = db.SitterProfiles.Where(s => s.Id == petsit.ProfileId).FirstOrDefault();
+
+            return View(model);
+        }
         public ActionResult ViewWalkerProfile(int? id)
         {
             var userId = User.Identity.GetUserId();
@@ -153,6 +163,13 @@ namespace THEcapstone.Controllers
                     model.Msg.TargetId = model.Walker.UserId;
                     model.Msg.AuthorId = model.Cust.UserId;
                     model.UserType = "Dog Walker";
+                    break;
+                case "Pet Sitter":
+                    model.Sitter = db.PetSitters.Where(d => d.ProfileId == id).FirstOrDefault();
+                    model.Msg = new Message();
+                    model.Msg.TargetId = model.Sitter.UserId;
+                    model.Msg.AuthorId = model.Cust.UserId;
+                    model.UserType = "Pet Sitter";
                     break;
                 default:
                     break;

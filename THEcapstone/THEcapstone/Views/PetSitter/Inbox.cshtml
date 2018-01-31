@@ -1,0 +1,51 @@
+﻿@model THEcapstone.Models.PSViewModel
+
+@{
+
+    ViewBag.Title = "Inbox";
+    Layout = "~/Views/Shared/_SitterLayout.cshtml";
+}
+
+
+<h2>Inbox</h2>
+
+@{if (Model.Sitter.Inbox.Count != 0)
+    {
+        <hr />
+        <div>
+            <table class="table table-hover">
+
+                @foreach (var message in Model.Sitter.Inbox)
+                {
+                    <tr>
+                        <td>
+                            @if (message.Opened == true)
+                            {
+                                <p>opened</p>
+                            }
+                            else
+                            {
+                                <p>unread</p>
+                            }
+                        </td>
+                        <td>
+                            @message.SentOn
+                        </td>
+                        <td>
+                            @Html.ActionLink("Open", "ReadMsg", new { id = message.MsgId }, new { @class = "btn btn-success btn-sm" })
+                            @Html.ActionLink("Delete", "DeleteMsg", new { id = message.MsgId }, new { @class = "btn btn-danger btn-sm" })
+                        </td>
+                    </tr>
+
+                }
+            </table>
+        </div>
+    }
+    else
+    {
+        <div class="text-center">
+            <p><i>Your Inbox is empty!</i></p>
+        </div>
+
+    }
+}

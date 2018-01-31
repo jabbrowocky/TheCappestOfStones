@@ -1,30 +1,30 @@
-﻿@model THEcapstone.Models.DogWalkerCreateModel
+﻿@model THEcapstone.Models.PSCreateModel
+@{
+    ViewBag.Title = "Create";
+    
+}
 
-
-<br />
-<h4>Dog Walker Information</h4>
-<hr />
-
+<h2>Pet Sitter Information</h2>
 
 @using (Html.BeginForm())
 {
     <div class="row">
         <div class="form-group">
-            @Html.LabelFor(m => m.Walker.WalkerFirstName, new { @class = "col-md-2 control-label" })
+            @Html.LabelFor(m => m.Sitter.SitterFirstName, new { @class = "col-md-2 control-label" })
             <div class="col-md-10">
-                @Html.TextBoxFor(m => m.Walker.WalkerFirstName, new { @class = "form-control" })
+                @Html.TextBoxFor(m => m.Sitter.SitterFirstName, new { @class = "form-control" })
             </div>
         </div>
     </div>
     <br />
-        <div class="row">
-            <div class="form-group">
-                @Html.LabelFor(m => m.Walker.WalkerLastName, new { @class = "col-md-2 control-label" })
-                <div class="col-md-10">
-                    @Html.TextBoxFor(m => m.Walker.WalkerLastName, new { @class = "form-control" })
-                </div>
+    <div class="row">
+        <div class="form-group">
+            @Html.LabelFor(m => m.Sitter.SitterLastName, new { @class = "col-md-2 control-label" })
+            <div class="col-md-10">
+                @Html.TextBoxFor(m => m.Sitter.SitterLastName, new { @class = "form-control" })
             </div>
         </div>
+    </div>
         <br />
         <div class="row">
             <div class="form-group">
