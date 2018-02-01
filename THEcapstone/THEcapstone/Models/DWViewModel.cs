@@ -11,6 +11,8 @@ namespace THEcapstone.Models
         public DogWalker Walker { get; set; }
         public Message Msg { get; set; }
         public List<ServiceRequest> Requests { get; set; }
+        public ServiceRequest ServiceInvitation { get; set; }
+        public Customer Client { get; set; }
         
     }
 }

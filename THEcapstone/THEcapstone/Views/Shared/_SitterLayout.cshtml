@@ -22,6 +22,7 @@
                 @Html.ActionLink("View Profile", "ViewProfile", new { id = Model.Sitter.ProfileId }, new { @class = "list-group-item" })               
                 @Html.ActionLink("Inbox", "Inbox",  new { id = Model.Sitter.SitterId }, new { @class = "list-group-item" })
                 @Html.ActionLink("Client Requests", "ClientRequests", new { id = Model.Sitter.SitterId}, new {  @class = "list-group-item"})
+                @Html.ActionLink("View Clients", "ViewClients", new { id = Model.Sitter.SitterId } , new { @class = "list-group-item" })
 
             }
 

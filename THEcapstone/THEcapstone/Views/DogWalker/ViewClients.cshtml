@@ -1,0 +1,32 @@
+﻿@model THEcapstone.Models.DWViewModel
+@{
+    ViewBag.Title = "ViewClients";
+    Layout = "~/Views/Shared/_WalkerLayout.cshtml";
+}
+
+<h2>View Clients</h2>
+<br />
+<hr />
+@if (Model.Walker.Clients.Count != 0)
+{
+   <table> 
+    @foreach (var client in Model.Walker.Clients)
+    {
+        
+            <tr>
+                <td>
+                    <h4>@client.CustFirstName @client.CustLastName </h4>
+                </td>
+                <td>                    
+                    @Html.ActionLink("View Client Location", "ViewClientLocation", new { id = client.CustId }, new { @class = "btn btn-primary btn-sm" })                    
+                </td>
+
+            </tr>
+        
+    }
+    </table>
+}
+else
+{
+    <div class="text-center"><h2><i>No current clients</i></h2></div>
+}

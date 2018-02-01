@@ -22,7 +22,7 @@ namespace THEcapstone.Models
         public WalkerProfile Profile { get; set; }
         public string FeedbackRating { get; set; }
         public List<Message> Inbox { get; set; }
-        public ICollection<Customer> Clients { get; set; } = null;
+        public List<Customer> Clients { get; set; }
         
     }
 }

@@ -276,9 +276,38 @@
     <Compile Include="Migrations\201802011506278_new columns yay.Designer.cs">
       <DependentUpon>201802011506278_new columns yay.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201802011553243_added column to requests.cs" />
+    <Compile Include="Migrations\201802011553243_added column to requests.Designer.cs">
+      <DependentUpon>201802011553243_added column to requests.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201802011725057_create a junction pl0x.cs" />
+    <Compile Include="Migrations\201802011725057_create a junction pl0x.Designer.cs">
+      <DependentUpon>201802011725057_create a junction pl0x.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201802011729196_GODFUCKINGDAMNIT.cs" />
+    <Compile Include="Migrations\201802011729196_GODFUCKINGDAMNIT.Designer.cs">
+      <DependentUpon>201802011729196_GODFUCKINGDAMNIT.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201802011733010_foo.cs" />
+    <Compile Include="Migrations\201802011733010_foo.Designer.cs">
+      <DependentUpon>201802011733010_foo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201802012051589_yepp.cs" />
+    <Compile Include="Migrations\201802012051589_yepp.Designer.cs">
+      <DependentUpon>201802012051589_yepp.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201802012113560_Okay, FINE.cs" />
+    <Compile Include="Migrations\201802012113560_Okay, FINE.Designer.cs">
+      <DependentUpon>201802012113560_Okay, FINE.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201802012115343_lol1.cs" />
+    <Compile Include="Migrations\201802012115343_lol1.Designer.cs">
+      <DependentUpon>201802012115343_lol1.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Addresses.cs" />
+    <Compile Include="Models\ClientWalkerJunction.cs" />
     <Compile Include="Models\CustInboxViewModel.cs" />
     <Compile Include="Models\Customer.cs" />
     <Compile Include="Models\CustomerCreateModel.cs" />
@@ -295,6 +324,7 @@
     <Compile Include="Models\PSCreateModel.cs" />
     <Compile Include="Models\PSViewModel.cs" />
     <Compile Include="Models\ServiceRequest.cs" />
+    <Compile Include="Models\SitterClientJunction.cs" />
     <Compile Include="Models\VetProfile.cs" />
     <Compile Include="Models\States.cs" />
     <Compile Include="Models\VerterinarianCreate.cs" />
@@ -415,6 +445,10 @@
     <Content Include="Views\PetSitter\ReplyToMessage.cshtml" />
     <Content Include="Views\DogWalker\ReplyToMessage.cshtml" />
     <Content Include="Views\DogWalker\ClientRequests.cshtml" />
+    <Content Include="Views\DogWalker\ViewClients.cshtml" />
+    <Content Include="Views\DogWalker\ViewClientLocation.cshtml" />
+    <Content Include="Views\PetSitter\ViewClients.cshtml" />
+    <Content Include="Views\PetSitter\ViewClientLocation.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -472,6 +506,27 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201802011506278_new columns yay.resx">
       <DependentUpon>201802011506278_new columns yay.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201802011553243_added column to requests.resx">
+      <DependentUpon>201802011553243_added column to requests.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201802011725057_create a junction pl0x.resx">
+      <DependentUpon>201802011725057_create a junction pl0x.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201802011729196_GODFUCKINGDAMNIT.resx">
+      <DependentUpon>201802011729196_GODFUCKINGDAMNIT.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201802011733010_foo.resx">
+      <DependentUpon>201802011733010_foo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201802012051589_yepp.resx">
+      <DependentUpon>201802012051589_yepp.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201802012113560_Okay, FINE.resx">
+      <DependentUpon>201802012113560_Okay, FINE.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201802012115343_lol1.resx">
+      <DependentUpon>201802012115343_lol1.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

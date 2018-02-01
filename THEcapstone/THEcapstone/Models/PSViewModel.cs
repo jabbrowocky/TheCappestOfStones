@@ -10,6 +10,9 @@ namespace THEcapstone.Models
         public Message Msg { get; set; }
         public PetSitter Sitter { get; set; }
         public PetSitterProfile SitterProf { get; set; }
+        public List <ServiceRequest> Requests {get;set;}
+        public ServiceRequest ServiceInvitation { get; set; }
+        public Customer Client { get; set; }
 
     }
 }

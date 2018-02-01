@@ -294,6 +294,7 @@ namespace THEcapstone.Controllers
                     request.UserId = db.DogWalkers.Where(d => d.ProfileId == id).FirstOrDefault().UserId;
                     request.CustomerId = model.Cust.CustId;
                     request.SenderName = model.Cust.CustFirstName + " " + model.Cust.CustLastName;
+                    request.RequestStatus = "Pending";
                     db.ServiceRequests.Add(request);
                     db.SaveChanges();
                     return RedirectToAction("ViewWalkerProfile", new { id = model.WalkerProf.Id });
@@ -304,6 +305,7 @@ namespace THEcapstone.Controllers
                     req.UserId = db.PetSitters.Where(d => d.ProfileId == id).FirstOrDefault().UserId;
                     req.CustomerId = model.Cust.CustId;
                     req.SenderName = model.Cust.CustFirstName + " " + model.Cust.CustLastName;
+                    req.RequestStatus = "Pending";
                     db.ServiceRequests.Add(req);
                     db.SaveChanges();
                     return RedirectToAction("ViewSitterProfile", new { id = model.SitterProf.Id });

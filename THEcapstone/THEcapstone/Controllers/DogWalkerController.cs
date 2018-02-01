@@ -25,6 +25,7 @@ namespace THEcapstone.Controllers
             }
             DWViewModel model = new DWViewModel();
             model.Walker = dawgWalker;
+            
             return View(model);
         }
         [HttpGet]
@@ -182,14 +183,55 @@ namespace THEcapstone.Controllers
             DWViewModel model = new DWViewModel();
             model.Walker = db.DogWalkers.Where(u => u.WalkerId == id).FirstOrDefault();
             model.Requests = db.ServiceRequests.Where(i => i.UserId == model.Walker.UserId).ToList();
+            model.Requests = model.Requests.Where(r => r.RequestStatus == "Pending").ToList();
             return View(model);
         }
-        public ActionResult AcceptRequest(int? id)
+        public ActionResult AcceptRequest(int? id, int? rqId)
         {
+            var userId = User.Identity.GetUserId();
+            DWViewModel model = new DWViewModel();
+            DogWalker dW = db.DogWalkers.Where(d => d.UserId == userId).FirstOrDefault();
+            model.Walker = dW;
+            model.ServiceInvitation = db.ServiceRequests.Where(i => i.RequestId == rqId).FirstOrDefault();
+            model.ServiceInvitation.RequestStatus = "Accepted";
+            db.Entry(model.ServiceInvitation).State = EntityState.Modified;
+            db.SaveChanges();            
+            Customer cust = db.Customers.Where(u => u.CustId == model.ServiceInvitation.CustomerId).FirstOrDefault();
+            AddClientToWalker(cust, dW);
+            return RedirectToAction("ClientRequests", new { id = model.Walker.WalkerId });
+        }
+        private void AddClientToWalker(Customer model, DogWalker walkerModel)
+        {
+            ClientWalkerJunction junc = new ClientWalkerJunction();            
+            junc.ClientId = model.CustId;
+            junc.WalkerId = walkerModel.WalkerId;
+            junc.Walker = walkerModel;
+            junc.Client = model;
+            db.ClientsWalkerJunction.Add(junc);
+            db.SaveChanges();
+            
+        }
+        //public ActionResult DenyRequest(int? id)
+        //{
+
+        //}
+        public ActionResult ViewClients(int? id)
+        {
+            string userId = User.Identity.GetUserId();
+            DWViewModel dWvM = new DWViewModel();
+            dWvM.Walker = db.DogWalkers.Where(u => u.UserId == userId).FirstOrDefault();
+            dWvM.Walker.Clients = db.ClientsWalkerJunction.Where(x => x.Walker.WalkerId == id).Select(u => u.Client).ToList();
+            return View(dWvM);
 
         }
-        public ActionResult DenyRequest(int? id)
+        public ActionResult ViewClientLocation(int id)
         {
+            string userId = User.Identity.GetUserId();
+            DWViewModel vM = new DWViewModel();
+            vM.Walker = db.DogWalkers.Where(u => u.UserId == userId).First();
+            vM.Client = db.Customers.Where(i => i.CustId == id).First();
+            vM.Client.Address = db.Addresses.Where(u => u.AddressId == vM.Client.AddressId).First();
+            return View(vM);
 
         }
     }

@@ -178,9 +178,60 @@ namespace THEcapstone.Controllers
             PetSitter sitter = db.PetSitters.Where(u => u.UserId == modelObject.Sitter.UserId).FirstOrDefault();
             return RedirectToAction("Inbox", new { id = sitter.SitterId });
         }
-        public ActionResult ClientRequests (int? id)
+        public ActionResult ClientRequests(int? id)
         {
-            return View();
+            PSViewModel model = new PSViewModel();
+            model.Sitter = db.PetSitters.Where(u => u.SitterId == id).FirstOrDefault();
+            model.Requests = db.ServiceRequests.Where(i => i.UserId == model.Sitter.UserId).ToList();
+            model.Requests = model.Requests.Where(r => r.RequestStatus == "Pending").ToList();
+            return View(model);
+        }
+        public ActionResult AcceptRequest(int? id, int? rqId)
+        {
+            var userId = User.Identity.GetUserId();
+            PSViewModel model = new PSViewModel();
+            PetSitter sitty = db.PetSitters.Where(d => d.UserId == userId).FirstOrDefault();
+            model.Sitter = sitty;
+            model.ServiceInvitation = db.ServiceRequests.Where(i => i.RequestId == rqId).FirstOrDefault();
+            model.ServiceInvitation.RequestStatus = "Accepted";
+            db.Entry(model.ServiceInvitation).State = EntityState.Modified;
+            db.SaveChanges();
+            Customer cust = db.Customers.Where(u => u.CustId == model.ServiceInvitation.CustomerId).FirstOrDefault();
+            AddClientToSitter(cust, sitty);
+            return RedirectToAction("ClientRequests", new { id = model.Sitter.SitterId });
+        }
+        private void AddClientToSitter(Customer model, PetSitter sitterModel)
+        {
+            SitterClientJunction junc = new SitterClientJunction();
+           
+            junc.Sitter = sitterModel;
+            junc.Client = model;
+            db.ClientsSitterJunction.Add(junc);
+            db.SaveChanges();
+
+        }
+        //public ActionResult DenyRequest(int? id)
+        //{
+
+        //}
+        public ActionResult ViewClients(int? id)
+        {
+            string userId = User.Identity.GetUserId();
+            PSViewModel pS = new PSViewModel();
+            pS.Sitter = db.PetSitters.Where(u => u.UserId == userId).FirstOrDefault();
+            pS.Sitter.Clients = db.ClientsSitterJunction.Where(x => x.Sitter.SitterId == id).Select(u => u.Client).ToList();
+            return View(pS);
+
+        }
+        public ActionResult ViewClientLocation(int id)
+        {
+            string userId = User.Identity.GetUserId();
+            PSViewModel pS = new PSViewModel();
+            pS.Sitter = db.PetSitters.Where(u => u.UserId == userId).First();
+            pS.Client = db.Customers.Where(i => i.CustId == id).First();
+            pS.Client.Address = db.Addresses.Where(u => u.AddressId == pS.Client.AddressId).First();
+            return View(pS);
+
         }
     }
 }

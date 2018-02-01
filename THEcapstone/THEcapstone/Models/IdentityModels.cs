@@ -41,5 +41,7 @@ namespace THEcapstone.Models
         public DbSet<WalkerProfile> WalkerProfiles { get; set; }
         public DbSet<PetSitterProfile> SitterProfiles { get; set; }
         public DbSet<ServiceRequest> ServiceRequests { get; set; }
+        public DbSet<ClientWalkerJunction> ClientsWalkerJunction { get; set; }
+        public DbSet<SitterClientJunction> ClientsSitterJunction { get; set; }
     }
 }

@@ -11,10 +11,12 @@ namespace THEcapstone.Models
     {
         [Key]
         public int CustId { get; set; }
+        [Display(Name = "First Name")]
         public string CustFirstName { get; set; }
+        [Display(Name = "Last Name")]
         public string CustLastName { get; set; }
         public int AddressId { get; set; }
-        public Addresses AddId { get; set; }
+        public Addresses Address { get; set; }
         public string UserId { get; set; }
         [ForeignKey("UserId")]
         public virtual ApplicationUser User { get; set; }
