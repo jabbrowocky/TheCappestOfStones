@@ -85,8 +85,13 @@
       <HintPath>..\packages\Sendgrid.9.9.0\lib\net452\SendGrid.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="Stripe.net, Version=12.1.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Stripe.net.12.1.0\lib\net45\Stripe.net.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Data.Linq" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
@@ -235,6 +240,34 @@
     <Compile Include="Migrations\201801310429358_fuckin a.Designer.cs">
       <DependentUpon>201801310429358_fuckin a.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201801311425405_lolwut.cs" />
+    <Compile Include="Migrations\201801311425405_lolwut.Designer.cs">
+      <DependentUpon>201801311425405_lolwut.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201801311612313_stuff.cs" />
+    <Compile Include="Migrations\201801311612313_stuff.Designer.cs">
+      <DependentUpon>201801311612313_stuff.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201801311755356_update.cs" />
+    <Compile Include="Migrations\201801311755356_update.Designer.cs">
+      <DependentUpon>201801311755356_update.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201801312154268_been a while.cs" />
+    <Compile Include="Migrations\201801312154268_been a while.Designer.cs">
+      <DependentUpon>201801312154268_been a while.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201801312204582_undid ed.cs" />
+    <Compile Include="Migrations\201801312204582_undid ed.Designer.cs">
+      <DependentUpon>201801312204582_undid ed.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201801312243528_do stuff.cs" />
+    <Compile Include="Migrations\201801312243528_do stuff.Designer.cs">
+      <DependentUpon>201801312243528_do stuff.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201801312300196_lolwut1.cs" />
+    <Compile Include="Migrations\201801312300196_lolwut1.Designer.cs">
+      <DependentUpon>201801312300196_lolwut1.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Addresses.cs" />
@@ -253,6 +286,7 @@
     <Compile Include="Models\PetSitterProfile.cs" />
     <Compile Include="Models\PSCreateModel.cs" />
     <Compile Include="Models\PSViewModel.cs" />
+    <Compile Include="Models\ServiceRequest.cs" />
     <Compile Include="Models\VetProfile.cs" />
     <Compile Include="Models\States.cs" />
     <Compile Include="Models\VerterinarianCreate.cs" />
@@ -295,6 +329,7 @@
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
     <Content Include="Scripts\_references.js" />
+    <Content Include="successdog.jpg" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -365,6 +400,10 @@
     <Content Include="Views\PetSitter\ViewProfile.cshtml" />
     <Content Include="Views\PetSitter\CreateProfile.cshtml" />
     <Content Include="Views\Shared\_SitterLayout.cshtml" />
+    <Content Include="Views\Customer\Subscribe.cshtml" />
+    <Content Include="Views\Customer\Charge.cshtml" />
+    <Content Include="Views\Veterinarian\ReplyToMessage.cshtml" />
+    <Content Include="Views\Customer\ReplyToMessage.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -395,6 +434,27 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201801310429358_fuckin a.resx">
       <DependentUpon>201801310429358_fuckin a.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201801311425405_lolwut.resx">
+      <DependentUpon>201801311425405_lolwut.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201801311612313_stuff.resx">
+      <DependentUpon>201801311612313_stuff.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201801311755356_update.resx">
+      <DependentUpon>201801311755356_update.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201801312154268_been a while.resx">
+      <DependentUpon>201801312154268_been a while.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201801312204582_undid ed.resx">
+      <DependentUpon>201801312204582_undid ed.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201801312243528_do stuff.resx">
+      <DependentUpon>201801312243528_do stuff.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201801312300196_lolwut1.resx">
+      <DependentUpon>201801312300196_lolwut1.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

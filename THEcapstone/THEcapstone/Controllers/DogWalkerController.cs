@@ -155,6 +155,32 @@ namespace THEcapstone.Controllers
             db.SaveChanges();
             return RedirectToAction("Inbox", new { id = model.Walker.WalkerId });
         }
+        public ActionResult ReplyToMessage(int? id)
+        {
+            var userId = User.Identity.GetUserId();
+            DWViewModel model = new DWViewModel();
+            model.Msg = db.Messages.Where(i => i.MsgId == id).FirstOrDefault();
+            model.Walker = db.DogWalkers.Where(u => u.UserId == userId).FirstOrDefault();
+            return View(model);
+
+        }
+        [HttpPost]
+        public ActionResult ReplyToMessage(DWViewModel modelObject)
+        {
+            Message mess = new Message();
+            mess.MsgText = modelObject.Msg.MsgText;
+            mess.TargetId = modelObject.Msg.AuthorId;
+            mess.AuthorId = modelObject.Walker.UserId;
+            mess.SentOn = DateTime.Today.Date;
+            db.Messages.Add(mess);
+            db.SaveChanges();
+            Customer cust = db.Customers.Where(u => u.UserId == modelObject.Walker.UserId).FirstOrDefault();
+            return RedirectToAction("Inbox", new { id = cust.CustId });
+        }
+        public ActionResult ClientRequests (int? id)
+        {
+            return View();
+        }
     }
 
 }

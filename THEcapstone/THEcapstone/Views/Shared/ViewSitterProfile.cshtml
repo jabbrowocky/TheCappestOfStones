@@ -40,5 +40,5 @@
 
 </div>
 @Html.ActionLink("Send Message", "SendMsg", new { id = Model.SitterProf.Id, name = "Pet Sitter" }, new { @class = "btn btn-primary" })
-
+@Html.ActionLink("Request", "RequestServices", new { id = Model.SitterProf.Id, profType = "Pet Sitter" }, new { @class = "btn btn-primary" })
 

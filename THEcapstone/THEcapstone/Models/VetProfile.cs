@@ -20,7 +20,11 @@ namespace THEcapstone.Models
         [Display(Name = "Give a description of your staff")]
         [DataType(DataType.MultilineText)]
         public string StaffDescription { get; set; } = null;
-        [Display(Name = "City")]
+        [Required]
+        [Display (Name = "Discount you'll offer to subscribed clients")]
+        public string DiscountToDisplay { get; set; }
+        [Display(Name = "City you operate out of.")]
+        [Required]
         public string MapAddressCity { get; set; } = null;
         [Display(Name = "Would you like your profile to display your location on a map?")]
         public bool ShowMap { get; set; }

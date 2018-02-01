@@ -6,6 +6,8 @@ using System.Web.Mvc;
 using THEcapstone.Models;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
+using Stripe.net;
+using Stripe;
 
 namespace THEcapstone.Controllers
 {
@@ -16,6 +18,7 @@ namespace THEcapstone.Controllers
         {
             db = new ApplicationDbContext();
         }
+        
         public ActionResult Index()
         {
             var userId = User.Identity.GetUserId();
@@ -39,6 +42,7 @@ namespace THEcapstone.Controllers
           
             return View();
         }
+       
         public ActionResult Admin()
         {
 

@@ -12,6 +12,7 @@ namespace THEcapstone
     public class KeyManager
     {
         public string SendGridKey { get; set; }
+        public string StripeKey { get; set; }
         public KeyManager()
         {
             SetKeys();
@@ -20,6 +21,7 @@ namespace THEcapstone
         {
             JObject keyObject = JObject.Parse(File.ReadAllText(@"C:\Users\DalekMyBalls\Desktop\DevCodeCamp\aspdotnet\TheCappestOfStones\THEcapstone\THEcapstone\Json\Keys.Json"));
             SendGridKey = keyObject.GetValue("SendGridKey").ToString();
+            StripeKey = keyObject.GetValue("StripeSecretKey").ToString();
         }
     }
 }

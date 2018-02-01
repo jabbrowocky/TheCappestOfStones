@@ -15,8 +15,10 @@
           @Html.ActionLink("Home", "Index", new { }, new { @class = "list-group-item" })
           @Html.ActionLink("Find Services", "FindServices", new { }, new { @class = "list-group-item" })          
           @Html.ActionLink("Inbox", "Inbox", "Customer", new { id = Model.Cust.CustId}, new{ @class = "list-group-item" })
-            
-
+          @if ( Model.Cust.IsSubscribed == false)
+          {
+            @Html.ActionLink("Subscribe Now", "Subscribe", new { id = Model.Cust.CustId }, new { @class = "list-group-item" })  
+          }
         </ul>
     </div>
     <div class="col-md-10">

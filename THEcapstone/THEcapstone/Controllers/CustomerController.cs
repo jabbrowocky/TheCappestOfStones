@@ -6,6 +6,7 @@ using Microsoft.AspNet.Identity;
 using System.Web.Mvc;
 using THEcapstone.Models;
 using System.Data.Entity;
+using Stripe;
 
 namespace THEcapstone.Controllers
 {
@@ -28,7 +29,47 @@ namespace THEcapstone.Controllers
             
             return RedirectToAction("Create");
         }
+        public ActionResult Charge(string stripeEmail, string stripeToken)
+        {
 
+            var customers = new StripeCustomerService();
+            var charges = new StripeChargeService();
+
+            var customer = customers.Create(new StripeCustomerCreateOptions
+            {
+                Email = stripeEmail,
+                SourceToken = stripeToken
+            });
+
+            var charge = charges.Create(new StripeChargeCreateOptions
+            {
+                Amount = 15000,
+                Description = "Sample Charge",
+                Currency = "usd",
+                CustomerId = customer.Id
+            });
+
+            var custy = subscribeCustomer();
+            CustInboxViewModel model = new CustInboxViewModel();
+            model.Cust = custy;
+            return View(model);
+        }
+        public ActionResult Subscribe()
+        {
+            CustInboxViewModel model = new CustInboxViewModel();
+            var userId = User.Identity.GetUserId();
+            model.Cust = db.Customers.Where(u => u.UserId == userId).FirstOrDefault();
+            return View(model);
+        }
+        private Customer subscribeCustomer()
+        {
+            var userId = User.Identity.GetUserId();
+            Customer cust = db.Customers.Where(u => u.UserId == userId).FirstOrDefault();
+            cust.IsSubscribed = true;
+            db.Entry(cust).State = EntityState.Modified;
+            db.SaveChanges();
+            return cust;
+        }
         public ActionResult Create()
         {                    
                
@@ -216,6 +257,59 @@ namespace THEcapstone.Controllers
             db.Messages.Add(message);
             db.SaveChanges();
             return RedirectToAction("Index","Customer");
+        }
+        public ActionResult ReplyToMessage(int? id)
+        {
+            var userId = User.Identity.GetUserId();
+            CustInboxViewModel model = new CustInboxViewModel();
+            model.Msg = db.Messages.Where(i => i.MsgId == id).FirstOrDefault();
+            model.Cust = db.Customers.Where(u => u.UserId == userId).FirstOrDefault();
+            return View(model);
+
+        }
+        [HttpPost]
+        public ActionResult ReplyToMessage(CustInboxViewModel modelObject)
+        {
+            Message mess = new Message();
+            mess.MsgText = modelObject.Msg.MsgText;
+            mess.TargetId = modelObject.Msg.AuthorId;
+            mess.AuthorId = modelObject.Cust.UserId;
+            mess.SentOn = DateTime.Today.Date;
+            db.Messages.Add(mess);
+            db.SaveChanges();
+            Customer cust = db.Customers.Where(u => u.UserId == modelObject.Cust.UserId).FirstOrDefault();
+            return RedirectToAction("Inbox", new { id = cust.CustId });
+        }
+        public ActionResult RequestServices(int? id, string profType)
+        {
+            ViewProfileModel model = new ViewProfileModel();
+            var userId = User.Identity.GetUserId();
+            switch (profType)
+            {
+                //saved request, need to redirect or create new view
+                case "Dog Walker":
+                    model.WalkerProf = db.WalkerProfiles.Where(u => u.Id == id).FirstOrDefault();
+                    model.Cust = db.Customers.Where(u => u.UserId == userId).FirstOrDefault();
+                    ServiceRequest request = new ServiceRequest();
+                    request.UserId = db.DogWalkers.Where(d => d.ProfileId == id).FirstOrDefault().UserId;
+                    request.CustomerId = model.Cust.CustId;
+                    db.ServiceRequests.Add(request);
+                    db.SaveChanges();
+                    return RedirectToAction("ViewWalkerProfile", new { id = model.WalkerProf.Id });
+                case "Pet Sitter":
+                    model.SitterProf = db.SitterProfiles.Where(u => u.Id == id).FirstOrDefault();
+                    model.Cust = db.Customers.Where(u => u.UserId == User.Identity.GetUserId()).FirstOrDefault();
+                    ServiceRequest req = new ServiceRequest();
+                    req.UserId = db.PetSitters.Where(d => d.ProfileId == id).FirstOrDefault().UserId;
+                    req.CustomerId = model.Cust.CustId;
+                    db.ServiceRequests.Add(req);
+                    db.SaveChanges();
+                    return RedirectToAction("ViewSitterProfile", new { id = model.SitterProf.Id });
+                default:
+                    break;
+            }
+            return RedirectToAction("Index","Home");
+        
         }
     }
 }

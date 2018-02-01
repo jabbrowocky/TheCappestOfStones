@@ -1,16 +1,13 @@
 ﻿@model THEcapstone.Models.ViewProfileModel
 @{
-    ViewBag.Title = "ViewVetProfile";
+    ViewBag.Title = "View Vet Profile";
     Layout = "~/Views/Shared/_CustomerLayout.cshtml";
 }
 <div class="row">
     <div class="col-lg-4">
         <h1>Veterinarian Profile</h1>
     </div>
-    <div class="col-lg-10 col-lg-offset-10">
-        <h4>I'm here:</h4>
-        @Html.ActionLink("Send Message","SendMsg", new { id = Model.VetProfile.ProfileId, name = "Veterinarian" }, new { @class = "btn btn-primary" })
-    </div>
+    
 </div>
 
 <hr />
@@ -26,7 +23,12 @@
                 <div class="panel-body">
 
                     <h4>@Model.VetProfile.UserDescription</h4>
-
+                    <div class="col-lg-10 col-lg-offset-10">
+                        <h4>Contact Us:</h4>
+                        @Html.ActionLink("Send Message", "SendMsg", new { id = Model.VetProfile.ProfileId, name = "Veterinarian" }, new { @class = "btn btn-primary" })
+                       
+                    </div>
+                    
                 </div>
             </div>
         </div>
@@ -57,32 +59,15 @@
             </div>
         </div>
     </div>
-    <div class="row">
-        <div class="col-lg-6">
-            <div class="panel panel-default">
-                <div class="panel-heading">
-                    <h3 class="panel-title">Our Address Information</h3>
-                </div>
-                <div class="panel-body">
-
-                    <h4>todo</h4>
-
-                </div>
-            </div>
-        </div>
-        <div class="col-lg-6">
-            <div class="panel panel-default">
-                <div class="panel-heading">
-                    <h3 class="panel-title">Contact Us</h3>
-                </div>
-                <div class="panel-body">
-
-                    <h4>todo</h4>
-
-                </div>
-            </div>
-        </div>
+    <br />
+    if (Model.Cust.IsSubscribed == true)
+    {
+       
+    <div class="col-md-offset-2">
+        <h4 class="text-success">Our Discount: @Model.VetProfile.DiscountToDisplay</h4>
     </div>
+    <br />
+    }
     if (Model.VetProfile.ShowMap == true)
     {
         <div class="row">
@@ -147,7 +132,7 @@ else
                             }
 
                         });
-
+                    
             }
     </script>
 }

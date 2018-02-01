@@ -156,5 +156,9 @@ namespace THEcapstone.Controllers
             db.SaveChanges();
             return RedirectToAction("Inbox", new { id = model.Sitter.SitterId });
         }
+        public ActionResult ClientRequests (int? id)
+        {
+            return View();
+        }
     }
 }

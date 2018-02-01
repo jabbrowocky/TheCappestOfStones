@@ -3,6 +3,8 @@ using Microsoft.AspNet.Identity.EntityFramework;
 using Microsoft.Owin;
 using Owin;
 using THEcapstone.Models;
+using Stripe;
+
 
 [assembly: OwinStartupAttribute(typeof(THEcapstone.Startup))]
 namespace THEcapstone
@@ -11,8 +13,12 @@ namespace THEcapstone
     {
         public void Configuration(IAppBuilder app)
         {
+
+            KeyManager manager = new KeyManager();
+            var key = manager.StripeKey;
             ConfigureAuth(app);
             createRolesandUsers();
+            StripeConfiguration.SetApiKey(key);
             
         }
         private void createRolesandUsers()

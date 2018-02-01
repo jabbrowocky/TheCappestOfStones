@@ -19,6 +19,7 @@ namespace THEcapstone.Models
         public string UserId { get; set; }
         public virtual ApplicationUser User { get; set; }
         public List<Message> Inbox { get; set; }
+   
         public int FeedbackRating { get; set; }
     }
 }

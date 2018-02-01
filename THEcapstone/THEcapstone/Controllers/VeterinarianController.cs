@@ -103,11 +103,12 @@ namespace THEcapstone.Controllers
                 prof.UserDescription = model.VetProfile.UserDescription;
                 prof.StaffDescription = model.VetProfile.StaffDescription;
                 prof.ServicesDescription = model.VetProfile.ServicesDescription;
+                prof.MapAddressCity = model.VetProfile.MapAddressCity;
+                prof.DiscountToDisplay = model.VetProfile.DiscountToDisplay;
                 if (model.VetProfile.ShowMap == true)
                 {
                     prof.ShowMap = true;
-                    prof.MapAddressStreet = model.VetProfile.MapAddressStreet;
-                    prof.MapAddressCity = model.VetProfile.MapAddressCity;
+                    prof.MapAddressStreet = model.VetProfile.MapAddressStreet;                    
                     prof.MapAddressState = model.VetProfile.MapAddressState;
                 }
                 db.VetProfiles.Add(prof);
@@ -192,6 +193,28 @@ namespace THEcapstone.Controllers
             db.SaveChanges();
             return RedirectToAction("Inbox", new { id = model.Vet.VetId });
         }
+        public ActionResult ReplyToMessage(int? id)
+        {
+            var userId = User.Identity.GetUserId();
+            VetProfileViewModel model = new VetProfileViewModel();
+            model.Msg = db.Messages.Where(i => i.MsgId == id).FirstOrDefault();
+            model.Vet = db.Veterinarians.Where(u => u.UserId == userId).FirstOrDefault();
+            return View(model);
 
+        }
+        [HttpPost]
+        public ActionResult ReplyToMessage (VetProfileViewModel modelObject)
+        {
+            Message mess = new Message();
+            mess.MsgText = modelObject.Msg.MsgText;
+            mess.TargetId = modelObject.Msg.AuthorId;
+            mess.AuthorId = modelObject.Vet.UserId;
+            mess.SentOn = DateTime.Today.Date;
+            db.Messages.Add(mess);
+            db.SaveChanges();
+            Veterinarian vetty = db.Veterinarians.Where(u => u.UserId == modelObject.Vet.UserId).FirstOrDefault();
+            
+            return RedirectToAction("Inbox", new { id = vetty.VetId });
+        }
     }
 }

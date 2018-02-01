@@ -10,7 +10,9 @@ namespace THEcapstone.Models
     {
         [Key]
         public int WalkerId { get; set; }
+        [Display(Name = "First Name")]
         public string WalkerFirstName { get; set; }
+        [Display(Name = "Last Name")]
         public string WalkerLastName { get; set; }
         public int AddressId { get; set; }        
         public Addresses Address { get; set; }

@@ -20,5 +20,6 @@ namespace THEcapstone.Models
         public PetSitterProfile Profile { get; set; }
         public int FeedbackRating { get; set; }
         public List<Message> Inbox { get; set; }
+        public List<ServiceRequest> Requests {get;set;}
     }
 }

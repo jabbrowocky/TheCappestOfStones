@@ -21,6 +21,7 @@
                 @Html.ActionLink("View Profile", "ViewProfile",  new { id = Model.Walker.ProfileId }, new { @class = "list-group-item" })
                 @*@Html.ActionLink("Edit Profile", "EditProfile",  new { id = Model.Walker.ProfileId }, new { @class = "list-group-item" }) //edit is weird with viewmodel*@
                 @Html.ActionLink("Inbox", "Inbox",  new { id = Model.Walker.WalkerId}, new { @class = "list-group-item" })
+                @Html.ActionLink("Client Requests","ClientRequests", new { id = Model.Walker.WalkerId}, new { @class="list-group-item"})
             }
 
         </ul>

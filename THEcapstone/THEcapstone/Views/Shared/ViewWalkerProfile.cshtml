@@ -1,6 +1,6 @@
 ﻿@model THEcapstone.Models.ViewProfileModel
 @{
-    ViewBag.Title = "ViewWalkerProfile";
+    ViewBag.Title = "View Walker Profile";
     Layout = "~/Views/Shared/_CustomerLayout.cshtml";
 }
 
@@ -39,3 +39,4 @@
 
 </div>
 @Html.ActionLink("Send Message", "SendMsg", new { id = Model.WalkerProf.Id, name = "Dog Walker" }, new { @class = "btn btn-primary" })
+@Html.ActionLink("Request", "RequestServices", new { id = Model.WalkerProf.Id, profType = "Dog Walker" }, new { @class = "btn btn-primary" })

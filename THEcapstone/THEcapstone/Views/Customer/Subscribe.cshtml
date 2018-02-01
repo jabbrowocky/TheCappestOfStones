@@ -1,0 +1,27 @@
+﻿@model THEcapstone.Models.CustInboxViewModel
+@{
+    ViewBag.Title = "Subscribe";
+    Layout = "~/Views/Shared/_CustomerLayout.cshtml";
+}
+
+<h2>Subscribe</h2>
+
+<h3>Subscribe now to save up to 15% on all of your veterinary services!  </h3>
+
+<h4><i>(offer varies between our partnered Veterinarians)</i></h4>
+<br />
+<hr />
+
+    <form action="/Customer/Charge" method="POST">
+        <article>
+            <label>Customer: @Model.Cust.CustFirstName @Model.Cust.CustLastName</label><br />
+            <label>Yearly Fee: $150.00</label>
+        </article>
+        <script src="//checkout.stripe.com/v2/checkout.js"
+                class="stripe-button"
+                data-key="pk_test_h41gcHIXc6yJamvRjp5pWiJZ"
+                data-locale="auto"
+                data-description="Sample Charge"
+                data-amount="15000">
+        </script>
+    </form>

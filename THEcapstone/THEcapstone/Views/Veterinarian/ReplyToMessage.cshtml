@@ -1,0 +1,35 @@
+﻿@model THEcapstone.Models.VetProfileViewModel
+@{
+    ViewBag.Title = "ReplyToMessage";
+    Layout = "~/Views/Shared/_VeterinarianLayout.cshtml";
+}
+
+@using (Html.BeginForm())
+{
+    <div class="row">
+        <div class="form-group col-md-offset-1">
+           
+            <h3>Reply To:</h3>
+            @Html.HiddenFor(u => u.Vet.UserId)
+            @Html.HiddenFor(u => u.Msg.AuthorId)
+        </div>
+    </div>
+    <br />
+    <div class="row">
+        <div class="form-group col-md-offset-1">
+            @Html.Label("Message:")
+            <div class="form-group col-md-10">
+                @Html.TextAreaFor(m => m.Msg.MsgText, 5, 12, new { @class = "col-md-2 form-control" })
+            </div>
+        </div>
+    </div>
+    <br />
+
+    <div class="row">
+        <div class="form-group">
+            <div class="col-md-offset-5 col-md-10">
+                <input type="submit" value="Send" class="btn btn-success btn-sm" />
+            </div>
+        </div>
+    </div>
+}
