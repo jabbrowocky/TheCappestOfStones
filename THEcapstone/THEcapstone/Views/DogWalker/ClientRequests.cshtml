@@ -1,0 +1,36 @@
+﻿@model THEcapstone.Models.DWViewModel
+@{
+    ViewBag.Title = "ClientRequests";
+    Layout = "~/Views/Shared/_WalkerLayout.cshtml";
+}
+
+<h2>ClientRequests</h2>
+
+@if(Model.Requests != null)
+{
+    <table>
+        @foreach (var request in Model.Requests)
+        {
+        <tr>    
+            <td>
+                @if(request.SenderName != null)
+                {
+                    @request.SenderName
+                }else
+                {
+                    <p> no name submitted </p>
+                }
+            </td>
+            <td>
+                @Html.ActionLink("Add Client","AcceptClient", new { id = request.CustomerId  }, new { @class = "btn btn-primary btn-sm" })
+                @Html.ActionLink("Deny Client", "DenyClient", new { id = request.RequestId }, new { @class = "btn btn-primary btn-sm" })
+            </td>
+        </tr>
+
+        }
+    </table>
+}
+else
+{
+    <h4>No requests</h4>
+}

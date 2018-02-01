@@ -268,6 +268,14 @@
     <Compile Include="Migrations\201801312300196_lolwut1.Designer.cs">
       <DependentUpon>201801312300196_lolwut1.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201802011430592_lol.cs" />
+    <Compile Include="Migrations\201802011430592_lol.Designer.cs">
+      <DependentUpon>201802011430592_lol.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201802011506278_new columns yay.cs" />
+    <Compile Include="Migrations\201802011506278_new columns yay.Designer.cs">
+      <DependentUpon>201802011506278_new columns yay.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Addresses.cs" />
@@ -404,6 +412,9 @@
     <Content Include="Views\Customer\Charge.cshtml" />
     <Content Include="Views\Veterinarian\ReplyToMessage.cshtml" />
     <Content Include="Views\Customer\ReplyToMessage.cshtml" />
+    <Content Include="Views\PetSitter\ReplyToMessage.cshtml" />
+    <Content Include="Views\DogWalker\ReplyToMessage.cshtml" />
+    <Content Include="Views\DogWalker\ClientRequests.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -455,6 +466,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201801312300196_lolwut1.resx">
       <DependentUpon>201801312300196_lolwut1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201802011430592_lol.resx">
+      <DependentUpon>201802011430592_lol.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201802011506278_new columns yay.resx">
+      <DependentUpon>201802011506278_new columns yay.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

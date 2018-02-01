@@ -156,6 +156,28 @@ namespace THEcapstone.Controllers
             db.SaveChanges();
             return RedirectToAction("Inbox", new { id = model.Sitter.SitterId });
         }
+        public ActionResult ReplyToMessage(int? id)
+        {
+            var userId = User.Identity.GetUserId();
+            PSViewModel model = new PSViewModel();
+            model.Msg = db.Messages.Where(i => i.MsgId == id).FirstOrDefault();
+            model.Sitter = db.PetSitters.Where(u => u.UserId == userId).FirstOrDefault();
+            return View(model);
+
+        }
+        [HttpPost]
+        public ActionResult ReplyToMessage(PSViewModel modelObject)
+        {
+            Message mess = new Message();
+            mess.MsgText = modelObject.Msg.MsgText;
+            mess.TargetId = modelObject.Msg.AuthorId;
+            mess.AuthorId = modelObject.Sitter.UserId;
+            mess.SentOn = DateTime.Today.Date;
+            db.Messages.Add(mess);
+            db.SaveChanges();
+            PetSitter sitter = db.PetSitters.Where(u => u.UserId == modelObject.Sitter.UserId).FirstOrDefault();
+            return RedirectToAction("Inbox", new { id = sitter.SitterId });
+        }
         public ActionResult ClientRequests (int? id)
         {
             return View();

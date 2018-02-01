@@ -174,12 +174,23 @@ namespace THEcapstone.Controllers
             mess.SentOn = DateTime.Today.Date;
             db.Messages.Add(mess);
             db.SaveChanges();
-            Customer cust = db.Customers.Where(u => u.UserId == modelObject.Walker.UserId).FirstOrDefault();
-            return RedirectToAction("Inbox", new { id = cust.CustId });
+            DogWalker walks = db.DogWalkers.Where(u => u.UserId == modelObject.Walker.UserId).FirstOrDefault();
+            return RedirectToAction("Inbox", new { id = walks.WalkerId });
         }
         public ActionResult ClientRequests (int? id)
         {
-            return View();
+            DWViewModel model = new DWViewModel();
+            model.Walker = db.DogWalkers.Where(u => u.WalkerId == id).FirstOrDefault();
+            model.Requests = db.ServiceRequests.Where(i => i.UserId == model.Walker.UserId).ToList();
+            return View(model);
+        }
+        public ActionResult AcceptRequest(int? id)
+        {
+
+        }
+        public ActionResult DenyRequest(int? id)
+        {
+
         }
     }
 

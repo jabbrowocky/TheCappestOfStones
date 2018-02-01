@@ -11,8 +11,10 @@ namespace THEcapstone.Models
         [Key]
         public int RequestId { get; set; }
         public string UserId { get; set; }
+        public string SenderName { get; set; }
         public virtual ApplicationUser User { get; set; }
         public int CustomerId { get; set; }
         public Customer Customer { get; set; }
+       
     }
 }
