@@ -154,6 +154,7 @@ namespace THEcapstone.Controllers
 
             return View(serv);
         }
+        
         public ActionResult ViewVetProfile(int? id)
         {
             var userId = User.Identity.GetUserId();
@@ -286,7 +287,7 @@ namespace THEcapstone.Controllers
             var userId = User.Identity.GetUserId();
             switch (profType)
             {
-                //saved request, need to redirect or create new view
+               
                 case "Dog Walker":
                     model.WalkerProf = db.WalkerProfiles.Where(u => u.Id == id).FirstOrDefault();
                     model.Cust = db.Customers.Where(u => u.UserId == userId).FirstOrDefault();
@@ -300,7 +301,7 @@ namespace THEcapstone.Controllers
                     return RedirectToAction("ViewWalkerProfile", new { id = model.WalkerProf.Id });
                 case "Pet Sitter":
                     model.SitterProf = db.SitterProfiles.Where(u => u.Id == id).FirstOrDefault();
-                    model.Cust = db.Customers.Where(u => u.UserId == User.Identity.GetUserId()).FirstOrDefault();
+                    model.Cust = db.Customers.Where(u => u.UserId == userId).FirstOrDefault();
                     ServiceRequest req = new ServiceRequest();
                     req.UserId = db.PetSitters.Where(d => d.ProfileId == id).FirstOrDefault().UserId;
                     req.CustomerId = model.Cust.CustId;
@@ -315,5 +316,6 @@ namespace THEcapstone.Controllers
             return RedirectToAction("Index","Home");
         
         }
+        
     }
 }

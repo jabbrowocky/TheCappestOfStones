@@ -304,6 +304,10 @@
     <Compile Include="Migrations\201802012115343_lol1.Designer.cs">
       <DependentUpon>201802012115343_lol1.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201802012231121_lameow.cs" />
+    <Compile Include="Migrations\201802012231121_lameow.Designer.cs">
+      <DependentUpon>201802012231121_lameow.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Addresses.cs" />
@@ -449,6 +453,7 @@
     <Content Include="Views\DogWalker\ViewClientLocation.cshtml" />
     <Content Include="Views\PetSitter\ViewClients.cshtml" />
     <Content Include="Views\PetSitter\ViewClientLocation.cshtml" />
+    <Content Include="Views\PetSitter\ClientRequests.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -527,6 +532,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201802012115343_lol1.resx">
       <DependentUpon>201802012115343_lol1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201802012231121_lameow.resx">
+      <DependentUpon>201802012231121_lameow.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

@@ -1,0 +1,53 @@
+﻿@model THEcapstone.Models.PSViewModel
+@{
+    ViewBag.Title = "ClientRequests";
+    Layout = "~/Views/Shared/_SitterLayout.cshtml";
+}
+
+
+
+<h2>Client Requests</h2>
+<br />
+<hr />
+@if (Model.Requests.Count != 0)
+{
+    <table>
+        @foreach (var request in Model.Requests)
+        {
+            <tr>
+
+                <td>
+                    <div class="row">
+                        <div class="col-lg-offset-3">
+                            @if (request.SenderName != null)
+                    {
+                                <h4>@request.SenderName</h4>
+                            }
+                            else
+                            {
+                                <p> no name submitted </p>
+                            }
+                        </div>
+                    </div>
+                </td>
+                <td>
+                    <div class="row">
+                        <div class="col-md-offset-4">
+                            @Html.ActionLink("Add Client", "AcceptRequest", new { id = request.CustomerId, rqId = request.RequestId }, new { @class = "btn btn-primary btn-sm" })
+                            @Html.ActionLink("Deny Client", "DenyClient", new { id = request.RequestId }, new { @class = "btn btn-primary btn-sm" })
+                        </div>
+                    </div>
+                </td>
+            </tr>
+
+        }
+    </table>
+}
+else
+{
+    <div class="text-center">
+        <h4><i> No current requests </i> </h4>
+    </div>
+}
+
+
