@@ -9,6 +9,8 @@
 <hr />
 <br />
 <h4>Name: @Model.SitterProf.SitterFirstName  @Model.SitterProf.SitterLastName</h4>
+<h4>Location: @Model.SitterProf.CityName</h4>
+<h4>Rate of pay: @Model.SitterProf.RatePerHour</h4>
 <br />
 <div class="row">
     <div class="col-md-12">
@@ -19,13 +21,14 @@
             <div class="panel-body">
 
                 <h4>@Model.SitterProf.BriefDescription</h4>
-
+                <br />
+                
             </div>
         </div>
     </div>
 </div>
 <div class="row">
-    <div class="col-lg-6">
+    <div class="col-md-12">
         <div class="panel panel-default">
             <div class="panel-heading">
                 <h3 class="panel-title">Experience:</h3>

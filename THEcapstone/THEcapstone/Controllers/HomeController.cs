@@ -81,5 +81,9 @@ namespace THEcapstone.Controllers
 
             return View();
         }
+        public ActionResult AdoptAPet()
+        {
+            return View();
+        }
     }
 }

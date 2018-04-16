@@ -19,6 +19,7 @@
 <div id="walker" style="display:none">@Html.Partial("_ListWalkers", Model)</div>
 <div id="sitter" style="display:none">@Html.Partial("_ListSitters", Model)</div>
 
+
 @section scripterino{
     
     <script>
@@ -35,9 +36,10 @@
 
             vetDiv: document.getElementById('vet'),
             walkerDiv: document.getElementById('walker'),
-            sitterDiv: document.getElementById('sitter')
-
+            sitterDiv: document.getElementById('sitter'),            
+            
         };
+        
 
         function controlView(activeButton, activeDiv) {
 

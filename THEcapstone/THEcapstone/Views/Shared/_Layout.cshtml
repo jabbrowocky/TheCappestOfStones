@@ -18,10 +18,12 @@
                     <span class="icon-bar"></span>
                 </button>
                 @Html.ActionLink("Pet City", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+                
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
                     <li>@Html.ActionLink("Home", "Index", "Home")</li>
+                    @*<li>@Html.ActionLink("Adopt a Pet", "AdoptAPet", "Home")</li>*@
                     @if (User.IsInRole("Admin"))
                     {
                         <li>@Html.ActionLink("Admin", "Admin", "Home")</li>

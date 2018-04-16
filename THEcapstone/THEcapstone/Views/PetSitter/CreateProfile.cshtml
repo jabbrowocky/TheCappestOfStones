@@ -46,7 +46,6 @@
             </div>
         </div>
         <br />
-
         <div class="row">
             <div class="form-group col-md-offset-1">
                 @Html.LabelFor(model => model.SitterProf.ExperienceDescription, new { @class = "col-md-2 control-label" })
@@ -55,9 +54,16 @@
                 </div>
             </div>
         </div>
+        <br />      
+        <div class="row">
+            <div class="form-group col-md-offset-1">
+                @Html.LabelFor(model => model.SitterProf.RatePerHour, new { @class = "col-md-2 control-label" })
+                <div class="col-md-10">
+                    @Html.TextBoxFor(m => m.SitterProf.RatePerHour, new { @class = "form-control" })
+                </div>
+            </div>
+        </div>
         <br />
-        
-
         <div class="row">
             <div class="form-group">
                 <div class="col-md-offset-5 col-md-10">

@@ -2,4 +2,19 @@
 @{ 
     Layout = "~/Views/Shared/_WalkerLayout.cshtml";
 }
-<h4> we made it bois!</h4>
+
+<h2>Index</h2>
+<hr />
+<br />
+@if (Model.Walker.ProfileId == null)
+{
+   <center><h3> @Model.Walker.WalkerFirstName, it appears you haven't set up your profile</h3></center>
+   <br />
+   <hr />
+}
+else
+{
+    <h3>Welcome, @Model.Walker.WalkerFirstName</h3>
+    <br />
+    <hr />
+}

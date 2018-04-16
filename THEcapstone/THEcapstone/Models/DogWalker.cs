@@ -20,7 +20,8 @@ namespace THEcapstone.Models
         public virtual ApplicationUser User { get; set; }
         public int? ProfileId { get; set; } = null;
         public WalkerProfile Profile { get; set; }
-        public string FeedbackRating { get; set; }
+        public int FeedbackRating { get; set; }
+        public int FeedbackCount { get; set; }
         public List<Message> Inbox { get; set; }
         public List<Customer> Clients { get; set; }
         

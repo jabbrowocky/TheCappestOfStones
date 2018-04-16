@@ -92,6 +92,7 @@ namespace THEcapstone.Controllers
                 profile.SitterLastName = psModel.SitterProf.SitterLastName;
                 profile.CityName = psModel.SitterProf.CityName;
                 profile.ExperienceDescription = psModel.SitterProf.ExperienceDescription;
+                profile.RatePerHour = psModel.SitterProf.RatePerHour;
                 db.SitterProfiles.Add(profile);
                 db.SaveChanges();
                 AddProfileToSitter(profile);

@@ -4,7 +4,8 @@
     Layout = "~/Views/Shared/_WalkerLayout.cshtml";
 }
 
-<h2>Create Profile</h2>
+<h2>Create Your Dog Walker Profile!</h2>
+<hr />
 
 @using (Html.BeginForm())
 {
@@ -49,17 +50,24 @@
             <div class="form-group col-md-offset-1">
                 @Html.LabelFor(model => model.WalkerProf.CityName, new { @class = "col-md-2 control-label" })
                 <div class="col-md-10">
-                    @Html.TextAreaFor(m => m.WalkerProf.CityName, 5, 12, new { @class = "form-control" })
+                    @Html.TextBoxFor(m => m.WalkerProf.CityName, new { @class = "form-control" })
                 </div>
             </div>
         </div>
-        <br />   
-        
+        <br />
         <div class="row">
-            <div class="form-group">
-                <div class="col-md-offset-5 col-md-10">
-                    <input type="submit" value="Create" class="btn btn-success btn-lg" />
+            <div class="form-group col-md-offset-1">
+                @Html.LabelFor(model => model.WalkerProf.RatePerHour, new { @class = "col-md-2 control-label" })
+                <div class="col-md-10">
+                    @Html.TextBoxFor(m => m.WalkerProf.RatePerHour, new { @class = "form-control" })
                 </div>
             </div>
         </div>
-}
+            <div class="row">
+                <div class="form-group">
+                    <div class="col-md-offset-5 col-md-10">
+                        <input type="submit" value="Create" class="btn btn-success btn-lg" />
+                    </div>
+                </div>
+            </div>
+            }

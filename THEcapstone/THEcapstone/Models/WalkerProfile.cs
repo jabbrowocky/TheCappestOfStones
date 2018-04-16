@@ -19,6 +19,9 @@ namespace THEcapstone.Models
         public string UserDiscription { get; set; } 
         [Display(Name = "List any dog preferences you may have")]     
         public string DogTypePreference { get; set; }
+        [Display(Name = "City to display to customers.")]
         public string CityName { get; set; }
+        [Display(Name = "Expected rate for your services")]
+        public string RatePerHour { get; set; }
     }
 }

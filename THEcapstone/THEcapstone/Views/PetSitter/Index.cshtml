@@ -6,4 +6,8 @@
 
 <h2>Index</h2>
 
-Hai gusy
+<hr />
+@if(Model.Sitter.ProfileId == null)
+{
+    <h3>@Model.Sitter.SitterFirstName, it appears you haven't set up your profile yet.</h3>
+}

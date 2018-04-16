@@ -91,12 +91,13 @@ namespace THEcapstone.Controllers
                 profile.UserDiscription = vModel.WalkerProf.UserDiscription;
                 profile.WalkerFirstName = vModel.WalkerProf.WalkerFirstName;
                 profile.WalkerLastName = vModel.WalkerProf.WalkerLastName;
-                profile.DogTypePreference = vModel.WalkerProf.DogTypePreference;                
+                profile.DogTypePreference = vModel.WalkerProf.DogTypePreference;
+                profile.RatePerHour = vModel.WalkerProf.RatePerHour;                
                 db.WalkerProfiles.Add(profile);
                 db.SaveChanges();
                 AddProfileToWalker(profile);
             }
-
+            
             return RedirectToAction("Index", "DogWalker");
         }
         private void AddProfileToWalker(WalkerProfile model)

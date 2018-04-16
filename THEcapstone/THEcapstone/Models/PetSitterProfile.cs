@@ -21,5 +21,7 @@ namespace THEcapstone.Models
         public string BriefDescription { get; set; }
         [Display(Name = "Description of previous experience")]
         public string ExperienceDescription { get; set; }
+        [Display(Name="Rate of pay expected")]
+        public string RatePerHour { get; set; }
     }
 }

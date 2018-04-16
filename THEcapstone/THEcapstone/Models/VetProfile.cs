@@ -29,8 +29,7 @@ namespace THEcapstone.Models
         [Display(Name = "Would you like your profile to display your location on a map?")]
         public bool ShowMap { get; set; }
         [Display(Name = "What street address would you like to use?")]
-        public string MapAddressStreet { get; set; } = null;
-        
+        public string MapAddressStreet { get; set; } = null;        
         [Display(Name = "State")]
         public string MapAddressState { get; set; } = null;
         
